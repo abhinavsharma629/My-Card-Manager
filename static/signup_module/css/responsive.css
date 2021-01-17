@@ -1,0 +1,140 @@
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .main-signup-form .input-box-area {
+        width: 77%;
+    }
+    #emailSendpop .email-send-modal-contet h4 {
+        width: 84%;
+    }
+    #emailSendpop .email-send-modal-contet p {
+        width: 87%;
+    }
+    .forgot-pass-content .form-area .inputboxarea {
+        width: 80%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .main-signup-form .input-box-area {
+        width: 77%;
+    }
+    #emailSendpop .email-send-modal-contet h4 {
+        width: 84%;
+    }
+    #emailSendpop .email-send-modal-contet p {
+        width: 87%;
+    }
+    .forgot-pass-content .form-area .inputboxarea {
+        width: 80%;
+    }
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+}
+
+@media (max-width: 575px) {
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+    #mobileHederContent{
+        width: 100%;
+        
+    }
+    .modal-dialog {
+        margin: 0px;
+        margin-top: 0px;
+    }
+    .modal-content{
+        padding: 112px 20px !important;
+        min-height: 100vh; 
+    }
+    #signup-popup .modal-content {
+        box-shadow: none;
+        padding: 112px 20px;
+        min-height: 100vh;
+    }
+    .social-login-auth ul {
+        margin-top: 12px;
+    }
+    .social-login-auth h4 {
+        font-size: 16px;
+    }
+    .social-login-auth ul li {
+        margin: 0px 8px;
+    }
+    .social-login-auth ul li a img {
+        height: 33px;
+    }
+    .main-signup-form h4 {
+        font-size: 15px;
+    }
+    .main-signup-form .input-box-area {
+        width: 97%;
+    }
+    #signin-popup .modal-content {
+        background: #F8FBFF;
+        box-shadow: none;
+        border: none;
+        border-radius: 7px;
+        padding: 30px 20px;
+    }
+    .main-signup-form .input-box-area .inputBoxPass {
+        margin-bottom: 29px;
+    }
+    #signup-popup .modal
+    {
+        overflow-y: scroll;
+    }
+    #signin-popup .modal
+    {
+        overflow-y: scroll;
+    }
+    #emailSendpop .modal
+    {
+        overflow-y: scroll;
+    }
+    #forgote-pass-popup .modal
+    {
+        overflow-y: scroll;
+    }
+    #setNew-passPopup .modal
+    {
+        overflow-y: scroll;
+    }
+    .forgot-pass-content .form-area .inputboxarea {
+        width: 97%;
+    }
+    #forgote-pass-popup .modal-content {
+        box-shadow: none;
+        padding: 30px 20px;
+    }
+    #setNew-passPopup .modal-content {
+        box-shadow: none;
+        padding: 30px 20px;
+    }
+    #emailSendpop .modal-content{
+        box-shadow: none;
+        padding: 30px 20px;
+    }
+    #emailSendpop .email-send-modal-contet h4 {
+        font-size: 14px;
+        width: 100%;
+        line-height: 19px;
+    }
+    #emailSendpop .email-send-modal-contet p {
+        font-size: 12px;
+        width: 100%;
+        line-height: 17px;
+    }
+    .cbtn{
+        font-size: 12px;
+    }
+}
+

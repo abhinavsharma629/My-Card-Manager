@@ -1,0 +1,1266 @@
+@import 'import/reset.scss';
+@import 'import/_color.scss';
+
+
+
+
+
+
+.nice-select{
+   width: 100%;
+   border: 1px solid #707070;
+   border-radius: 0px;
+   font-weight: 500;
+   font-size: 13px;
+   height: 36px;
+   line-height: 36px;
+   &:hover{
+      border-color: #707070;
+   }
+   &:focus{
+      border-color: #707070;
+   }
+   .list{
+      width: 100%;
+      max-height: 200px;
+      overflow-y: scroll;
+      li{
+         font-weight: 500;
+         font-size: 12px;
+      }
+   }
+}
+.tablePagination{
+   margin-top: 30px;
+   .pageNumber{
+      span{
+         background: #E1E1E1;
+         color: #000000;
+         font-weight: 500;
+         font-size: 15px;
+         padding: 10px 30px;
+         font-size: 14px;
+         border-radius: 4px;
+      }
+   }
+   .nextPage{
+      button{
+         background: #fff;
+         border: 2px solid #000000;
+         font-size: 14px;
+         padding: 4px 11px;
+         border-radius: 4px;
+         font-size: 18px;
+         outline: none;
+         &:hover{
+            background: #000;
+            color: #fff;
+         }
+      }
+   }
+}
+
+
+
+
+
+
+
+
+
+
+/*------------------------
+main code start here 
+-------------------------*/
+
+#adminPanelHeader{
+   background: #F8F9FA;
+   padding: 10px 0px;
+   box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+   position: relative;
+   .adminLogo{
+      a{
+         img{
+            height: 80px;
+         }
+      }
+   }
+   .menuareaAdmin{
+      ul{
+         li{
+            display: inline-block;
+            margin: 0px 25px;
+            position: relative;
+            >a{
+               display: block;
+               font-weight: 500;
+               font-size: 16px;
+               color: #000000;
+               padding: 8px 0px;
+            }
+            .adminDropdownHover{
+               position: absolute;
+               top: 100%;
+               left: 0;
+               background: #F6F6F6;
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               border-radius: 6px;
+               width: 180px;
+               text-align: left;
+               transition: 0.4s;
+               display: none;
+               opacity: 0;
+               z-index: 99999999999999;
+               ul{
+                  li{
+                     margin: 0px;
+                     display: block;
+                     a{
+                        padding: 8px 13px;
+                        font-size: 15px;
+                        border-bottom: 2px solid #ddd;
+                        font-weight: 400;
+                        &:hover{
+                           text-decoration: underline;
+                        }
+                     }
+                  }
+               }
+            }
+            &:hover{
+               .adminDropdownHover{
+                  opacity: 1;
+                  display: block;
+               }
+            }
+         }
+      }
+   }
+   .adminUserDropDown{
+      ul{
+        li{
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 0px;
+            position: relative;
+            img{
+               height: 50px;
+               margin-right: 7px;
+            }
+            font-weight: 500;
+            font-size: 16px;
+            i{
+               margin-left: 6px;
+               position: relative;
+               top: -2px;
+            }
+            .adminUserHover{
+               position: absolute;
+               top: 100%;
+               right: 0;
+               background: #F6F6F6;
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               border-radius: 6px;
+               text-align: left;
+               transition: 0.4s;
+               display: none;
+               opacity: 0;
+               width: 150px;
+               ul{
+                  li{
+                     margin: 0px;
+                     display: block;
+                     padding: 0px;
+                     a{
+                        padding: 10px 13px;
+                        font-size: 15px;
+                        border-bottom: 2px solid #ddd;
+                        font-weight: 500;
+                        display: block;
+                        color: #000000;
+                        text-align: center;
+                        &:hover{
+                           text-decoration: underline;
+                        }
+                     }
+                  }
+               }
+            }
+            &:hover{
+               .adminUserHover{
+                  opacity: 1;
+                  display: block;
+               }
+            }
+        }
+      }
+   }
+}
+
+#companyUserAdminPage{
+   padding: 50px 0px;
+   background: #F8F9FA;
+   .topfilterARea{
+      background: #F8FBFF;
+      box-shadow: -5px 5px 16px rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 5px;
+      .filterRow{
+         margin-bottom: 20px;
+         .filterItem{
+            label{
+               display: block;
+               font-weight: 500;
+               font-size: 14px;
+               color: #000000;
+               margin-bottom: 7px;
+            }
+            input{
+               border: 1px solid #707070;
+               padding: 4px 10px;
+               font-weight: 500;
+               font-size: 14px;
+               width: 100%;
+            }
+            select{
+               border: 1px solid #707070;
+               font-weight: 500;
+               font-size: 13px;
+               padding: 4px 10px;
+               font-weight: 500;
+               width: 100%;
+               option{
+                  font-weight: 500;
+                  font-size: 13px;
+               }
+            }
+         }
+      }
+      .filterBtnAction{
+         margin-top: 25px;
+         ul{
+            li{
+               display: inline-block;
+               margin-right: 30px;
+               a{
+                  display: block;
+                  padding: 10px 40px;
+                  background: #7B7B7B;
+                  font-weight: 500;
+                  font-size: 14px;
+                  border-radius: 4px;
+                  color: #fff;
+                  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                  &:hover{
+                     transform: translateY(-1px);
+                  }
+               }
+               a.btn1{
+                  background: #fff;
+                  color: #000000;
+               }
+               a.btn2{
+                  background: #0F9D58;
+               }
+            }
+         }
+      }
+   }
+   .mainTableContent{
+      margin-top: 50px;
+      overflow-x: scroll;
+      min-height: 400px;
+      scrollbar-color: #0F9D58 #ddd;
+      scrollbar-width: thin;
+      table{
+         width: 2500px;
+         border-left: 1px solid #ddd;
+         thead{
+            tr{
+               th{
+                  font-size: 15px;
+                  font-weight: 500;
+                  vertical-align: middle;
+                  text-align: center;
+                  color: #000000;
+                 input{
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 0px;
+                    cursor: pointer;
+                    outline: none;
+                    margin-right: 10px;
+                 }
+                 .form-check-input:checked{
+                    background-color: #0F9D58;
+                    outline: none;
+                    box-shadow: none;
+                    border: none;
+                 }
+                 .form-check-input:focus{
+                     box-shadow: none;
+                     border-color: #ddd;
+                 }
+               }
+               .emilTable {
+                  width: 13%;
+               }
+               .filterCheckTop{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-evenly;
+                  .dropdown{
+                     position: relative;
+                     left: -31px;
+                  }
+                  .dropdown button{
+                     background: transparent !important;
+                     border: none;
+                     color: #000000;
+                     font-weight: 500;
+                     outline: none;
+                     box-shadow: none;
+                     font-size: 16px;
+                     i{
+                        margin-right: 7px;
+                        font-size: 18px;
+                        position: relative;
+                        top: -1px;
+                     }
+                  }
+                  .dropdown-menu{
+                     padding: 0px;
+                     background: #F6F6F6;
+                     transform: translate(-39px, 36px) !important;
+                     li{
+                        a.dropdown-item{
+                           padding: 8px 10px !important;
+                           display: block;
+                           border-bottom: 2px solid #ddd;
+                           font-weight: 500;
+                           font-size: 14px;
+                           &:hover{
+                              text-decoration: underline;
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+         tbody{
+            tr{
+               td{
+                  text-align: center;
+                  font-size: 14px;
+                  font-weight: 500;
+                  vertical-align: middle;
+                  color: #333;
+                  input{
+                     width: 25px;
+                     height: 25px;
+                     border-radius: 0px;
+                     cursor: pointer;
+                     outline: none;
+                     margin-right: 10px;
+                  }
+                  .form-check-input:checked{
+                     background-color: #0F9D58;
+                     outline: none;
+                     box-shadow: none;
+                     border: none;
+                  }
+                  .form-check-input:focus{
+                      box-shadow: none;
+                      border-color: #ddd;
+                  }
+               }
+               .filterCheckBottom{
+                  display: flex;
+                  justify-content: space-evenly;
+                  align-items: center;
+                  margin-left: -3px;
+               }
+               .sendCredantialBtn{
+                  background: #007BFF;
+                  color: #fff;
+                  padding: 7px 20px;
+                  border-radius: 30px;
+                  font-size: 13px;
+                  display: inline-block;
+                  &:hover{
+                     text-decoration: underline;
+                     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+                     transform: translateY(-2px);
+                  }
+               }
+               button.status{
+                  background: #ddd;
+                  display: inline-block;
+                  padding: 6px 30px;
+                  width: 150px;
+                  border: none;
+                  outline: none;
+                  color: #fff;
+                  opacity: 1;
+                  font-weight: 500;
+                  &:hover{
+                     text-decoration: underline;
+                     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+                     transform: translateY(-2px);
+                  }
+               }
+               .red{
+                  background-color: #F02D3A !important;
+               }
+               .green{
+                  background-color: #0CCE6B !important;
+               }
+               .editProfileBtn{
+                  display: inline-block;
+                  background: #007BFF;
+                  color: #fff;
+                  font-weight: 500;
+                  padding: 6px 30px;
+                  border-radius: 30px;
+                  &:hover{
+                     text-decoration: underline;
+                     text-decoration: underline;
+                     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+                     transform: translateY(-2px);
+                  }
+               }
+            }
+         }
+      }
+   }
+   ::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+    .scroller {
+      overflow-y: scroll;
+      scrollbar-color: #0F9D58 #C2D2E4;
+      position: fixed;
+    }
+     
+    ::-webkit-scrollbar-track {
+      box-shadow: none;
+      background: #C2D2E4;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #0F9D58;
+      outline: 1px solid #C2D2E4;
+    }
+}
+
+
+//createCompanyPage
+#createCompanyPage{
+   background: #F8F9FA;
+   padding: 50px 0px;
+   min-height: 100vh;
+   .createCompanyContaier{
+      background: #F8FBFF;
+      box-shadow: -5px 5px 16px rgba(0,0,0,0.2);
+      padding: 30px 40px;
+      border-radius: 5px;
+      .inputBox{
+         margin-bottom: 15px;
+         label{
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 8px;
+         }
+         input{
+            width: 90%;
+            padding: 5px 15px;
+            border: 1px solid #707070;
+            background-color: #fff;
+            &:focus{
+               border-color: #0F9D58;
+            }
+         }
+         textarea{
+            width: 90%;
+            padding: 5px 15px;
+            border: 1px solid #707070;
+            background-color: #fff;
+            height: 100px;
+            resize: none;
+            &:focus{
+               border-color: #0F9D58;
+            }
+         }
+         .companyTypeTop{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            button{
+               background: #FFFFFF;
+               border: 1px solid #707070;
+               padding: 7px 15px;
+               margin-right: 20px;
+               border-radius: 3px;
+               font-weight: 500;
+               font-size: 14px;
+               outline: none;
+               img{
+                  height: 30px;
+                  margin-right: 5px;
+               }
+            }
+         }
+      }
+      .inputBoxstatus{
+         margin-top: 30px;
+      }
+      .formSubmitAction{
+         margin-top: 10px;
+         button{
+            background: #0F9D58;
+            border: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 13px 60px;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.4s;
+            &:hover{
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               transform: translateY(-2px);
+            }
+         }
+      }
+   }
+}
+
+//viewCompanyPage
+#viewCompanyPage{
+   background: #F8F9FA;
+   padding: 50px 0px;
+   min-height: 100vh;
+   .viewCompanyPageContainer{
+      background: #F8FBFF;
+      box-shadow: -5px 5px 16px rgba(0,0,0,0.2);
+      padding: 30px 40px;
+      border-radius: 5px;
+      .inputBox{
+         margin-bottom: 15px;
+         label{
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 8px;
+         }
+         input{
+            width: 90%;
+            padding: 5px 15px;
+            border: 1px solid #707070;
+            background-color: #fff;
+            &:focus{
+               border-color: #0F9D58;
+            }
+         }
+         textarea{
+            width: 90%;
+            padding: 5px 15px;
+            border: 1px solid #707070;
+            background-color: #fff;
+            height: 100px;
+            resize: none;
+            &:focus{
+               border-color: #0F9D58;
+            }
+         }
+         .companyTypeTop{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            button{
+               background: #FFFFFF;
+               border: 1px solid #707070;
+               padding: 7px 15px;
+               margin-right: 20px;
+               border-radius: 3px;
+               font-weight: 500;
+               font-size: 14px;
+               outline: none;
+               img{
+                  height: 30px;
+                  margin-right: 5px;
+               }
+            }
+         }
+      }
+      .companyActionBtn{
+         margin-top: 10px;
+         button{
+            background: #0F9D58;
+            border: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 13px 60px;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.4s;
+            &:hover{
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               transform: translateY(-2px);
+            }
+         }
+      }
+   }
+   .companyViewTable{
+      margin-top: 50px;
+      overflow-x: scroll;
+      scrollbar-color: #0F9D58 #ddd;
+      scrollbar-width: thin;
+      table{
+         width: 2500px;
+         vertical-align: middle;
+         th{
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 20px;
+         }
+         td{
+            font-weight: 500;
+            font-size: 14px;
+            padding: 5px 20px;
+         }
+         .chnageStatus{
+            background: #007BFF;
+            display: inline-block;
+            padding: 6px 30px;
+            border: none;
+            outline: none;
+            color: #fff;
+            opacity: 1;
+            font-weight: 500;
+            transition: 0.4s;
+            &:hover{
+               text-decoration: underline;
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               transform: translateY(-2px);
+            }
+         }
+         .editBtn{
+            display: inline-block;
+            background: #F9C31C;
+            color: #fff;
+            font-weight: 500;
+            padding: 6px 30px;
+            border-radius: 30px;
+            &:hover{
+               text-decoration: underline;
+               box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+               transform: translateY(-2px);
+            }
+         }
+      }
+   }
+   ::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+    .scroller {
+      overflow-y: scroll;
+      scrollbar-color: #0F9D58 #C2D2E4;
+      position: fixed;
+    }
+     
+    ::-webkit-scrollbar-track {
+      box-shadow: none;
+      background: #C2D2E4;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #0F9D58;
+      outline: 1px solid slategrey;
+    }
+}
+
+
+//bulkUPloadARea
+#bulkUPloadARea{
+   padding: 50px 0px;
+   background: #F8F9FA;
+   min-height: 100vh;
+   .bulkUploadToparea{
+      background: #F8FBFF;
+      box-shadow: -5px 5px 16px rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 5px;
+      .inputBox{
+         label{
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 7px;
+         }
+         .nice-select{
+            width: 90%;
+         }
+      }
+      .inputBoxFile{
+         .labelInput{
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 7px;
+         }
+         input{
+            display: none;
+         }
+         .labeFile1{
+            background: #fff;
+            display: inline-block;
+            padding: 10px 80px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 2px 2px 9px rgba(0,0,0,0.2);
+         }
+      }
+      .downloadInput{
+         label{
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 7px;
+         }
+         button{
+            background: #fff;
+            display: inline-block;
+            padding: 10px 80px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 2px 2px 9px rgba(0,0,0,0.2);
+            border: none;
+            i{
+               margin-left: 10px;
+            }
+         }
+      }
+      .uploadBulkAction{
+         margin-top: 20px;
+         button{
+            display: block;
+            padding: 10px 60px;
+            background: #0F9D58;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 4px;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border: none;
+            transition: 0.4s;
+            &:hover{
+               transform: translateY(-1px);
+            }
+         }
+      }
+   }
+   .bulkUploadCheckArea{
+      margin-top: 50px;
+      .uploadCheckBox{
+         background: #F8FBFF;
+         padding: 30px 40px;
+         box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
+         border-radius: 4px;
+         width: 80%;
+         margin: 0 auto;
+         position: relative;
+         .checkBulkBtn{
+            position: absolute;
+            bottom: -20px;
+            width: 80%;
+            text-align: center;
+            button{
+               background: #F9C31C;
+               color: #000;
+               font-weight: 500;
+               font-size: 14px;
+               outline: none;
+               border: none;
+               padding: 8px 40px;
+               border-radius: 3px;
+               transition: 0.4s;
+               &:hover{
+                  transform: translateY(-2px);
+               }
+            }
+         }
+         h4{
+            font-weight: 500;
+            font-size: 17px;
+            color: #000;
+         }
+         input{
+            width: 40%;
+            margin-top: 15px;
+            border: 1px solid #707070;
+            border-radius: 30px;
+            padding: 10px 10px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            color: #000;
+         }
+      }
+   }
+   .bulkUploadCheckBottomBtn{
+      margin-top: 30px;
+      a{
+         display: inline-block;
+         background: #00ADEF;
+         color: #000;
+         font-weight: 500;
+         font-size: 14px;
+         padding: 14px 60px;
+         border-radius: 3px;
+         &:hover{
+            transform: translateY(-3px);
+         }
+      }
+   }
+   .bulkUploadTableView{
+      margin-top: 60px;
+      overflow-x: scroll;
+      scrollbar-color: #0F9D58 #ddd;
+      scrollbar-width: thin;
+      table{
+         width: 2500px;
+         vertical-align: middle;
+         th{
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 20px;
+         }
+         td{
+            font-weight: 500;
+            font-size: 14px;
+            padding: 5px 20px;
+            .status{
+               background: #000;
+               border: none;
+               padding: 5px 30px;
+               color: #fff;
+               font-weight: 500;
+               font-size: 12px;
+               border-radius: 3px;
+            }
+         }
+      }
+   }
+   ::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+    .scroller {
+      overflow-y: scroll;
+      scrollbar-color: #0F9D58 #C2D2E4;
+      position: fixed;
+    }
+     
+    ::-webkit-scrollbar-track {
+      box-shadow: none;
+      background: #C2D2E4;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #0F9D58;
+      outline: 1px solid slategrey;
+    }
+}
+
+
+// global edit user profile
+#editProfileMainForm{
+   padding: 60px 0px;
+   background: #F8F9FA;
+   .editProfileForm{
+      width: 90%;
+      margin: 0 auto;
+   }
+   .formItemBox{
+       box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+       border-radius: 4px;
+       padding-bottom: 30px;
+       margin-bottom: 70px;
+   }
+   .editFormComonTop{
+       padding: 20px 0px;
+       position: relative;
+       .title{
+           h4{
+            font-weight: 600;
+            font-size: 25px;
+            color: $title2;  
+           }
+       }
+       .itemTopIcon{
+           position: absolute;
+           top: -20px;
+           left: 25px;
+           img{
+               height: 60px;
+           }
+       }
+   }
+
+   // main input box area
+   .inputBoxArea{
+       margin-top: 20px;
+       padding: 0px 30px;
+       .inputBox{
+           position: relative;
+           margin-bottom: 30px;
+           .getLinkBtn{
+               position: absolute;
+               right: 0;
+               bottom: -10px;
+               a{
+                   display: inline-block;
+                   background-color: #fff;
+                   font-weight: 500;
+                   font-size: 12px;
+                   padding: 5px 20px;
+                   border-radius: 30px;
+                   &:hover{
+                       background: #0096C7;
+                       color: #fff;
+                       transform: translateY(-2px);
+                   }
+               }
+           }
+           input{
+               width: 100%;
+               background-color: #fff;
+               border: 2px solid #fff;
+               box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+               padding: 10px 15px;
+               border-radius: 3px;
+               font-weight: 500;
+               font-size: 14px;
+               transition: 0.4s;
+               &:focus{
+                   border-color: #0096C7;
+               }
+           }
+           input.error{
+               border-color: $mainColor;
+           }
+           
+           textarea{
+               width: 100%;
+               background-color: #fff;
+               border: 2px solid #fff;
+               box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+               padding: 10px 15px;
+               border-radius: 3px;
+               font-weight: 500;
+               font-size: 14px;
+               transition: 0.4s;
+               height: 150px;
+               &:focus{
+                   border-color: #0096C7;
+               }
+           }
+
+           input[type='file']{
+               display: none;
+           }
+           .filetypeLabel{
+               background-color: #E1E1E1;
+               display: block;
+               cursor: pointer;
+               padding: 8px 15px;
+               border: 2px solid #E1E1E1;
+               box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+               border-radius: 30px;
+               margin-bottom: 0px;
+               line-height: 24px;
+               color: #F3F3F3;
+               font-weight: 500;
+               font-size: 14px;
+               transition: 0.4s;
+               &:hover{
+                   background-color: #0096C7;
+                   border-color: #0096C7;
+               }
+           }
+           label{
+               padding-left: 15px;
+               margin: 0px;
+               margin-top: 5px;
+               font-weight: 500;
+               font-size: 14px;
+               color: $title2;
+               margin-top: 0px;
+               span{
+                   font-weight: 400;
+               }
+           }
+           .label2{
+               padding-left: 15px;
+               margin: 0px;
+               margin-top: 5px;
+               font-weight: 500;
+               font-size: 14px;
+               color: $title2;
+               margin-top: 0px;
+           }
+           input:focus::placeholder {
+               color: transparent;
+           }
+           input::placeholder{
+               color: #999;
+               font-weight: 400;
+           }
+           textarea::placeholder{
+            color: #999;
+            font-weight: 400;
+         }
+           input-webkit-::placeholder{
+            color: #999;
+               font-weight: 400;
+           }
+           input-moz-::placeholder{
+            color: #999;
+               font-weight: 400;
+           }
+           input-o-::placeholder{
+            color: #999;
+               font-weight: 400;
+           }
+           input-ms-::placeholder{
+            color: #999;
+               font-weight: 400;
+           }
+           textarea:focus::placeholder {
+               color: transparent;
+           }
+       }
+       // profile image preview
+       .profileImagePreview{
+          display: flex;
+          align-items: baseline;
+          .downloadUserBtn{
+             margin-left: 30px;
+             position: relative;
+             top: 30px;
+             button{
+                background: #fff;
+                box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+                font-weight: 500;
+                font-size: 13px;
+                color: #000;
+                border: none;
+                padding: 7px 30px;
+                border-radius: 3px;
+                transition: 0.4s;
+                &:hover{
+                   background: #A5DDFF;
+                   color: #232323;
+                   transform: translateY(-2px);
+                }
+                i{
+                   margin-left: 8px;
+                }
+             }
+          }
+           img{
+               height: 60px;
+           }
+           p{
+               color: $title2;
+               font-weight: 500;
+               font-size: 13px;
+           }
+       }
+   }
+}
+// form submit action btn
+.formSubmitAction{
+   padding-bottom: 20px;
+   margin-top: -20px;
+   button{
+       background: #0096C7;
+       border: none;
+       color: #fff;
+       padding: 15px 60px;
+       font-weight: 500;
+       font-size: 15px;
+       border-radius: 30px;
+       box-shadow: 0px 3px 6px rgba(0,0,0,0.4);
+       transition: 0.4s;
+       &:hover{
+           box-shadow: none;
+           transform: translateY(-3px);
+       }
+   }
+}
+
+
+// form validations css
+label.error {
+   position: absolute;
+   top: -24px !important;
+   left: 0;
+   font-weight: 500;
+   font-size: 12px !important;
+   color: $mainColor !important;
+}
+
+// this is for phone numnber validation
+
+
+
+
+.iti--separate-dial-code .iti__selected-flag {
+   background-color: transparent;
+   border-right: 1px solid #dddddd4f;
+   font-size: 13px;
+   font-weight: 500;
+}
+.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+   background-color: transparent;
+}
+.iti__country-list {
+   max-height: 240px;
+   width: 415px;
+   font-size: 13px;
+   font-weight: 500;
+   border-radius: 4px;
+}
+
+
+.form_tr{
+   position: relative;
+}
+.hide {
+   display: none;
+}
+#valid-msg {
+   color: #00C900;
+   font-weight: 500;
+   font-size: 12px;
+   font-style: italic;
+   position: absolute;
+   top: -26px;
+   left: 0;
+   padding-left: 15px;
+}
+#error-msg {
+   color: red;
+   font-weight: 500;
+   font-size: 12px;
+   font-style: italic;
+   position: absolute;
+   top: -26px;
+   left: 0;
+   padding-left: 15px;
+}
+input#phoneInput.error {
+   border-color: red;
+}
+input#phoneInput.validNumber {
+   border-color: #00C900;
+}
+
+// countrySelect
+.country-select {
+   position: relative;
+   display: block;
+}
+.countrySelect{
+   padding-left: 60px !important;
+   position: relative !important;
+}
+.country-select .country-list {
+   width: 320px;
+   max-height: 240px;
+   margin-top: 5px;
+}
+.country-select .country-list::-webkit-scrollbar {
+   display: none;
+}
+.country-select .country-list::-moz-scrollbar {
+   display: none;
+}
+.country-select .country-list::-o-scrollbar {
+   display: none;
+}
+.country-select .country-list::-ms-scrollbar {
+   display: none;
+}
+.country-select .country-list .country {
+   padding: 5px 10px;
+   font-size: 12px;
+   font-weight: 500;
+}
+.country-select.inside .flag-dropdown:hover .selected-flag {
+   background-color: transparent;
+}
+// global phone input 
+.intl-tel-input input {
+   height: auto;
+   padding-left: 47px !important;
+}
+.intl-tel-input .flag-dropdown .selected-flag:hover {
+   background-color: transparent;
+}
+.intl-tel-input .flag-dropdown .selected-flag {
+   margin: 1px;
+   padding: 3px 21px 6px 13px;
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+.intl-tel-input .flag-dropdown {
+   position: absolute;
+   z-index: 1;
+   cursor: pointer;
+   height: 100%;
+}
+.intl-tel-input .flag-dropdown .country-list .country {
+   line-height: 16px;
+   padding: 7px 10px;
+   font-size: 13px;
+   font-weight: 500;
+}
+.intl-tel-input .flag-dropdown .country-list {
+   width: 321px !important;
+   margin-top: 23px !important;
+   max-height: 250px;
+}
+.intl-tel-input .flag-dropdown .country-list::-webkit-scrollbar {
+   display: none;
+}
+.intl-tel-input .flag-dropdown .country-list::-moz-scrollbar {
+   display: none;
+}
+.intl-tel-input .flag-dropdown .country-list::-o-scrollbar {
+   display: none;
+}
+.intl-tel-input .flag-dropdown .country-list::-ms-scrollbar {
+   display: none;
+}
+
+
+
+
+
+

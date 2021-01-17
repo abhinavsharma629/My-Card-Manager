@@ -1,0 +1,198 @@
+{% extends './common/company_skeleton.html' %}
+{% block main_body %}
+   <!-- start create company admin -->
+   <section id="createCompanyPage">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-xxl-10 col-lg-12 mx-auto">
+               <div class="createCompanyContaier">
+                  <!-- <form role="form" method="post" action=""> -->
+                    <input hidden id="csrf_token" value="{{csrf_token}}">
+                     <div class="row">
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Company Name</label>
+                              <input id="c_name" type="text">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Company Website</label>
+                              <input id="c_web" type="text">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Company Logo</label>
+                              <input id="c_logo" type="file">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Company Registered Address</label>
+                              <textarea id="c_address" ></textarea>
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Official Email</label>
+                              <input id="c_email" type="email">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Contact Person Name</label>
+                              <input id="c_person_name" type="text">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Contact Person Email</label>
+                              <input id="c_person_email" type="email">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Contact Person Mobile No.</label>
+                              <input id="c_person_phone" type="text">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox">
+                              <label>Company Type</label>
+                              <div class="companyTypeTop">
+                                 <button type="button">
+                                    <img src="{{ STATIC_URL }}static/company_module/img/icons/enterprise.png" alt="">
+                                    Company
+                                 </button>
+                                 <button type="button">
+                                    <img src="{{ STATIC_URL }}static/company_module/img/icons/consulting.png" alt="">
+                                    Consultant
+                                 </button>
+                              </div>
+                              <select id="c_type">
+                                 <option value="COMPANY">Company</option>
+                                 <option value="CONSULTANT">Consultant</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox inputBoxstatus">
+                              <label>Super User Email Adress</label>
+                              <input id="hr_email" type="email">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox inputBoxstatus">
+                              <label>Super User Login Password</label>
+                              <input id="hr_password" type="password">
+                           </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4">
+                           <div class="inputBox inputBoxstatus">
+                              <label>Company Status</label>
+                              <select id="c_status">
+                                 <option value="ACTIVE">ACTIVE</option>
+                                 <option value="INACTIVE">INACTIVE</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="formSubmitAction">
+                              <button type="button" id="create_company">Create</button>
+                           </div>
+                        </div>
+                     </div>
+                  <!-- </form> -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end create company admin -->
+
+
+   {% endblock %}
+
+   <!-- all javascript load here -->
+   {% block script_body %}
+   <script>
+     $(function(){
+       var csrftoken = $("#csrf_token").val();
+       var c_logo = '';
+
+       $("#c_logo").change(function(){
+         c_logo = this.files[0];
+         console.log(c_logo)
+       });
+
+
+       $("#create_company").click(function(){
+         var formdata = new FormData();
+         formdata.append('c_name', $("#c_name").val());
+         formdata.append('c_web', $("#c_web").val());
+         formdata.append('hr_email', $("#hr_email").val());
+         formdata.append('hr_password', $("#hr_password").val());
+         formdata.append('c_type', $("#c_type").val());
+         formdata.append('user_type', 'COMPANY_ADMIN');
+         formdata.append('c_address', $("#c_address").val());
+         formdata.append('c_email', $("#c_email").val());
+         formdata.append('c_status', $("#c_status").val());
+         formdata.append('c_person_name', $("#c_person_name").val());
+         formdata.append('c_person_email', $("#c_person_email").val());
+         formdata.append('c_person_phone', $("#c_person_phone").val());
+         formdata.append('c_logo', c_logo);
+         console.log(formdata);
+
+         $.ajax({
+            url: '/superpanel/save-company/',
+            data: formdata,
+            processData: false,
+            headers: {
+                             'X-CSRFToken': csrftoken
+                 },
+            cache:false,
+            contentType: false,
+            csrfmiddlewaretoken:'{{ csrf_token }}',
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  alert("Successfully created a new Company");
+                  window.location.href = "/superpanel/view-company"
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+         // $.ajax({
+         //      url: "/create-company/",
+         //      type: 'POST',
+         //      headers: {
+         //                  'Content-Type':'application/json',
+         //                  'X-CSRFToken': csrftoken
+         //      },
+         //      data: formdata,
+         //      success: function(data) {
+         //        console.log(data);
+         //        if(data.status === "ERROR"){
+         //          alert("Some Error Occured!! Please Try Again!!")
+         //        }
+         //        else if(data.status === "SUCCESS"){
+         //          alert("Successfully created a new Company");
+         //          window.location.href = "/view_company"
+         //        }
+         //        else{
+         //          alert("Some Error Occured!! Please Try Again!!")
+         //        }
+         //      }
+         //    });
+       });
+     });
+   </script>
+   {% endblock %}

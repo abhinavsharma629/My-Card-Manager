@@ -1,0 +1,341 @@
+{% extends './common/company_skeleton.html' %}
+{% block main_body %}
+   <!-- start company user admin page -->
+   <section id="companyUserAdminPage">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-xxl-10 col-lg-11 mx-auto">
+               <div class="topfilterARea">
+                  <form class="" role="form" method="get" action="">
+                     <div class="filterRow row d-flex  justify-content-center">
+                        <div class="filterItem col">
+                           <label>Name</label>
+                           <input type="text" id="name" name="name">
+                        </div>
+                        <div class="filterItem col">
+                           <label>Email Address</label>
+                           <input type="email" id="email" name="email">
+                        </div>
+                        <div class="filterItem col">
+                           <label>Phone No.</label>
+                           <input type="text" id="phone" name="phone">
+                        </div>
+                        <div class="filterItem col">
+                           <label>User ID</label>
+                           <input type="text" id="user_id" name="user_id">
+                        </div>
+                        <div class="filterItem col">
+                           <label>Is Editing Rights?</label>
+                           <select id="is_edit" name="is_edit">
+                             <option value="">Select Option</option>
+                             <option value="1">ACTIVE</option>
+                             <option value="0">INACTIVE</option>
+                           </select>
+                        </div>
+                        <div class="filterItem col">
+                           <label>Profile Status</label>
+                           <select id="p_status" name="p_status">
+                             <option value="">Select Option</option>
+                             <option value="1">ACTIVE</option>
+                             <option value="0">INACTIVE</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="filterBtnAction">
+                        <ul>
+                           <li><a class="btn1" id="export_employeeData">EXPORT ALL</a></li>
+                           <li><button class="btn btn-success" type="submit">FILTER</button></li>
+                           <!-- <li><a href="#">RESET</a></li> -->
+                        </ul>
+                     </div>
+                  </form>
+               </div>
+               <div class="mainTableContent">
+                  <table class="table table-bordered">
+                     <thead>
+                       <tr>
+                         <th scope="col" class="filterCheckTop">
+                            <input class="form-check-input" id="allCheck" type="checkbox">
+                            <div class="dropdown">
+                              <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-sort-down"></i> Name
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">Enable Profile URL</a></li>
+                                <li><a class="dropdown-item" href="#">Disable Profile URL</a></li>
+                                <li><a class="dropdown-item" href="#">Enable Editing</a></li>
+                                <li><a class="dropdown-item" href="#">Disable Editing</a></li>
+                                <li><a class="dropdown-item" href="#">Enable Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Disable Edit Profile</a></li>
+                              </ul>
+                            </div>
+                         </th>
+                         <th scope="col" class="emilTable">Email Address</th>
+                         <th scope="col" class="phone">Phone No.</th>
+                         <th scope="col" class="userId">User ID</th>
+                         <th scope="col" class="companyName">Company Name</th>
+                         <th scope="col">Profile URL?</th>
+                         <th scope="col">Is Editing?</th>
+                         <th scope="col">Profile Status</th>
+                         <th scope="col">Edit Profile</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       {% for employee in employees %}
+                      <tr>
+                        <td scope="row" class="filterCheckBottom">
+                           <input id="singleCheck_{{ employee.pk }}" data-id = "{{ employee.pk }}" class="form-check-input singleCheck" type="checkbox">
+                           {{ employee.user.user.first_name }} {% if employee.middle_name %}{{ employee.middle_name }}{% endif %} {{ employee.user.user.last_name }}
+                        </td>
+                        <td>{{ employee.user.user.email }}</td>
+                        <td>{{ employee.user.mobile }}</td>
+                        <td>{{ employee.user.user.username }}</td>
+                        <td>{{ employee.company.name }}</td>
+                        <td>{{ employee.user.password }}</td>
+                        <td><button class="status {% if employee.is_profile_link_active %}green{% else %}red{% endif %} change_profile_link" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_link_active }}" id="p_{{ employee.pk }}" type="button">{{ employee.is_profile_link_active }}</button></td>
+                        <td><button class="status {% if employee.is_profile_editing_active %}green{% else %}red{% endif %} change_edit_active" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_editing_active }}" id="p_e_{{ employee.pk }}" type="button">{{ employee.is_profile_editing_active }}</button></td>
+                        <td><button class="status {% if employee.is_profile_status_active %}green{% else %}red{% endif %} change_profile_status" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_status_active }}" id="p_s_{{ employee.pk }}" type="button">{{ employee.is_profile_status_active }}</button></td>
+                        <td><a href="/employees/edit-profile/{{ employee.pk }}" class="editProfileBtn">Edit</a></td>
+                      </tr>
+                      {% endfor %}
+                     </tbody>
+                   </table>
+               </div>
+               <div class="tablePagination">
+                  <div class="row align-items-center">
+                     <div class="col-lg-7">
+                        <div class="pageNumber text-end">
+                           <span>Page No. 01</span>
+                        </div>
+                     </div>
+                     <div class="col-lg-5">
+                        <div class="nextPage text-end">
+                           <button type="button"><i class="fa fa-long-arrow-right"></i></button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end company user admin page -->
+   {% endblock %}
+
+
+   <!-- all javascript load here -->
+   {% block script_body %}
+   <script>
+     $(function(){
+
+       $(".change_profile_link").click(function(){
+         console.log($(this).attr('data-status'));
+         console.log($(this).attr('data-id'));
+         var status = "True";
+         var that = this;
+         var id = $(this).attr('data-id');
+         if($(this).attr('data-status') == "True"){
+           status = "False"
+         }
+         else{
+           status = "True"
+         }
+
+         $.ajax({
+            url: '/company/change-employee-status/'+$(this).attr('data-id'),
+            processData: false,
+            headers: {
+                             'X-CSRFToken': '{{ csrf_token }}'
+                 },
+            data: JSON.stringify({
+              'profile_link': status
+            }),
+            cache:false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  $("#p_"+id).text(data['current_status']);
+                  $(that).attr('data-status', data['current_status']);
+                  if(data['current_status'] == "True"){
+                    $(that).attr('class', "status green change_profile_link");
+                  }
+                  else{
+                    $(that).attr('class', "status red change_profile_link");
+                  }
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+       });
+
+       $(".change_edit_active").click(function(){
+         console.log($(this).attr('data-status'));
+         console.log($(this).attr('data-id'));
+         var status = "True";
+         var that = this;
+         var id = $(this).attr('data-id');
+         console.log($(this).attr('data-status'))
+         if($(this).attr('data-status') == "True"){
+           status = "False"
+         }
+         else{
+           status = "True"
+         }
+
+         $.ajax({
+            url: '/company/change-employee-status/'+$(this).attr('data-id'),
+            processData: false,
+            headers: {
+                             'X-CSRFToken': '{{ csrf_token }}'
+                 },
+            data: JSON.stringify({
+              'edit_status': status
+            }),
+            cache:false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  $("#p_e_"+id).text(data['current_status']);
+                  $(that).attr('data-status', data['current_status']);
+                  if(data['current_status'] == "True"){
+                    $(that).attr('class', "status green change_profile_link");
+                  }
+                  else{
+                    $(that).attr('class', "status red change_profile_link");
+                  }
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+       });
+
+       $(".change_profile_status").click(function(){
+         console.log($(this).attr('data-status'));
+         console.log($(this).attr('data-id'));
+         var status = "True";
+         var that = this;
+         var id = $(this).attr('data-id');
+         console.log($(this).attr('data-status'))
+         if($(this).attr('data-status') == "True"){
+           status = "False"
+         }
+         else{
+           status = "True"
+         }
+
+         $.ajax({
+            url: '/company/change-employee-status/'+$(this).attr('data-id'),
+            processData: false,
+            headers: {
+                             'X-CSRFToken': '{{ csrf_token }}'
+                 },
+            data: JSON.stringify({
+              'profile_status': status
+            }),
+            cache:false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  $("#p_s_"+id).text(data['current_status']);
+                  $(that).attr('data-status', data['current_status']);
+                  if(data['current_status'] == "True"){
+                    $(that).attr('class', "status green change_profile_link");
+                  }
+                  else{
+                    $(that).attr('class', "status red change_profile_link");
+                  }
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+       });
+
+       $("#export_employeeData").click(function(){
+
+         $.ajax({
+            url: '/superpanel/exportData/',
+            processData: false,
+            headers: {
+                             'X-CSRFToken': '{{ csrf_token }}'
+                 },
+            data : JSON.stringify({
+              'list': {{employees_id}}
+            }),
+            cache:false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  alert("Successfully Exported Data")
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+       });
+
+       function removeElement(array, elem) {
+          var index = array.indexOf(elem);
+          if (index > -1) {
+              array.splice(index, 1);
+          }
+      }
+
+       var final_arr = [];
+
+       $("#allCheck").change(function(){
+         console.log({{employees_id}})
+         if($(this).is(':checked') === true){
+           for(let i = 0 ; i < {{employees_id}}.length ; i++){
+             final_arr.push({{employees_id}}[i])
+           }
+         }
+         else{
+           final_arr = []
+         }
+         console.log(final_arr)
+       });
+
+       $(".singleCheck").change(function(){
+         console.log($(this).is(':checked'))
+         if($(this).is(':checked') === true){
+           final_arr.push(parseInt($(this).attr('data-id')))
+         }
+         else{
+           removeElement(final_arr, parseInt($(this).attr('data-id')));
+         }
+         console.log(final_arr)
+       })
+     });
+   </script>
+   {% endblock %}

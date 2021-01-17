@@ -1,0 +1,207 @@
+{% extends './common/sign_skeleton.html' %}
+{% block main_body %}
+
+   <!-- start emil send popup -->
+   <div id="emailSendpop">
+      <div class="modal fade" id="emailpopupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+           <div class="modal-content">
+             <div class="modal-body">
+               <div class="email-send-modal-contet text-center">
+                  <img class="img-fluid" src="{{ STATIC_URL }}static/signup_module/img/icons/send.png" alt="">
+                  <h4>A verification link has been sent to your email address</h4>
+                  <p>Please click on the link that has just been sent to your email and continue the registration process.</p>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+   </div>
+   <!-- end emil send popup -->
+
+   <!-- start sign in modal area -->
+   <div id="signin-popup">
+      <!-- <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> -->
+         <div class="modal-dialog modal-lg modal-dialog-centered">
+           <div class="modal-content">
+             <div class="signup-modal-content">
+                <div class="social-login-auth text-center">
+                   <h4>SIGN IN USING SOCIAL LOGIN</h4>
+                   <ul>
+                      <li><a href="#"><img src="{{ STATIC_URL }}static/signup_module/img/icons/google.png" alt=""></a></li>
+                      <li><a href="#"><img src="{{ STATIC_URL }}static/signup_module/img/icons/facebook.png" alt=""></a></li>
+                      <li><a href="#"><img src="{{ STATIC_URL }}static/signup_module/img/icons/linkdin.png" alt=""></a></li>
+                      <!-- <li><a href="#"><img src="{{ STATIC_URL }}static/signup_module/img/icons/apple.png" alt=""></a></li> -->
+                   </ul>
+                </div>
+                <div class="main-signup-form">
+                   <form action="#">
+                      <h4>or use your email ADDRESS</h4>
+                      <div class="input-box-area">
+                         <div class="inputBox">
+                            <div class="input-main">
+                              <input type="email" id="my_email" placeholder="Email Address">
+                              <span class="input-icons"><i class="fa fa-envelope"></i></span>
+                            </div>
+                            <div class="create-new-account-link">
+                               <a href="/superpanel/signup">Create New Account</a>
+                            </div>
+                        </div>
+                        <div class="inputBox inputBoxPass">
+                           <div class="input-main">
+                             <input id="passwordFild2" type="password" placeholder="Password">
+                             <span class="input-icons"><i class="fa fa-lock"></i></span>
+                             <button class="passwordShowBtn show" type="button">
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-eye-slash"></i>
+                              </button>
+                              <span id="my_span" class="loginerror-message" style="display:none">Email or Password Incorrect</span>
+                           </div>
+                       </div>
+                       <div class="form-link-auth">
+                          <div class="row">
+                             <div class="col-lg-12">
+                              <div class="form-link-right text-right">
+                                 <a href="/superpanel/forgot-password" id="forgotepass-modal-btn2">Forgot Password?</a>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="form-submit-btn text-center">
+                          <button type="button" id="signinbtn-modal" class="cbtn">SIGN IN</button>
+                       </div>
+                      </div>
+                   </form>
+                </div>
+             </div>
+           </div>
+         </div>
+       <!-- </div> -->
+   </div>
+   <!-- end sign in modal area -->
+
+   <!-- start recover pass popup -->
+   <div id="forgote-pass-popup">
+      <div class="modal fade" id="forgotpass-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg modal-dialog-centered">
+           <div class="modal-content">
+             <div class="forgot-pass-content text-center">
+                <div class="topinfo">
+                   <h4>Recover Password</h4>
+                   <p>Don't worry, happens to the best of us</p>
+                </div>
+                <div class="form-area">
+                   <form action="#">
+                     <div class="inputboxarea">
+                        <div class="inputBox">
+                           <label>Enter your registered email address</label>
+                           <div class="input-main">
+                             <input type="email" placeholder="Email Address">
+                             <span class="input-icons"><i class="fa fa-envelope"></i></span>
+                           </div>
+                           <span class="forpass-error" style="display:none">This email address is not registered with us</span>
+                       </div>
+                      </div>
+                      <div class="action-btn">
+                         <button type="button" id="set-passmodal-btn" data-toggle="modal" data-target="#setnewpass-modal" class="cbtn">RECOVER PASSWORD</button>
+                      </div>
+                   </form>
+                </div>
+                <!-- <div class="info_link_bottom">
+                   <ul>
+                      <li><a href="#" id="passfor-createnew" data-toggle="modal" data-target="#signup-modal">Create New Account</a></li>
+                   </ul>
+                </div> -->
+             </div>
+           </div>
+         </div>
+       </div>
+   </div>
+   <!-- end recover pass popup -->
+
+   <!-- start set new password popup -->
+   <div id="setNew-passPopup">
+      <div class="modal fade" id="setnewpass-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg modal-dialog-centered">
+           <div class="modal-content">
+             <div class="set-newpassModal-content text-center">
+               <div class="topIfo">
+                  <h4>RESET PASSWORD</h4>
+                  <img src="{{ STATIC_URL }}static/signup_module/img/icons/login.png" alt="">
+               </div>
+               <div class="main-signup-form">
+                  <form action="#">
+                     <div class="input-box-area">
+                       <div class="inputBox">
+                          <div class="input-main">
+                            <input id="passwordFild3" type="password" placeholder="New Password">
+                            <span class="input-icons"><i class="fa fa-lock"></i></span>
+                            <button class="passwordShowBtn show" type="button">
+                               <i class="far fa-eye"></i>
+                               <i class="far fa-eye-slash"></i>
+                             </button>
+                          </div>
+                     </div>
+                     <div class="inputBox">
+                        <div class="input-main">
+                          <input id="passwordFild4" type="password" placeholder="Confirm New Password">
+                          <span class="input-icons"><i class="fa fa-lock"></i></span>
+                          <button class="passwordShowBtn2 show" type="button">
+                             <i class="far fa-eye"></i>
+                             <i class="far fa-eye-slash"></i>
+                           </button>
+                        </div>
+                        <div class="setpassword-form-error">
+                           Password Does Not Match
+                        </div>
+                     </div>
+
+                      <div class="form-submit-btn text-center">
+                         <button type="button" class="cbtn">CONTINUE</button>
+                      </div>
+                     </div>
+                  </form>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+   </div>
+   <!-- end set new password popup -->
+
+   {% endblock %}
+
+   <!-- all javascript load here -->
+   {% block script_body %}
+   <script>
+     $(function(){
+       $("#signinbtn-modal").click(function(){
+
+         $.ajax({
+              url: "/superpanel/login",
+              type: 'POST',
+              headers: {
+                          'Content-Type':'application/json',
+                          'X-CSRFToken': "{{ csrf_token }}"
+              },
+              data: JSON.stringify({
+                'email': $("#my_email").val(),
+                'password': $("#passwordFild2").val()
+              }),
+              success: function(data) {
+                console.log(data);
+                if(data.status==="error"){
+                  $("#my_span").css("display", "block");
+                }
+                else if(data.status==="success"){
+                  window.location.href = "/employees/edit-profile";
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+              }
+            });
+        });
+     })
+   </script>
+   {% endblock %}

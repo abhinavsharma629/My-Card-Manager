@@ -1,0 +1,120 @@
+/* XL (laptop) Device :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+   
+}
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .intl-tel-input .flag-dropdown .country-list {
+        position: absolute;
+        left: -100%;
+    }
+    #footer .footerLinkarea {
+        padding-left: 0px;
+    }
+    #headerArea .profileDropdown .profileHover {
+        right: 0;
+        left: inherit;
+    }
+}
+
+
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    #headerArea .profileDropdown .profileHover {
+        right: 0;
+        left: inherit;
+    }
+
+
+}
+
+
+@media (max-width: 767px) {
+}
+
+/*-- Phone Landscape --*/
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+}
+
+
+
+/* Extra small Device. */
+@media (max-width: 575px) {
+
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+    #editProfileMainForm .editFormComonTop .itemTopIcon img {
+        height: 38px;
+    }
+    #editProfileMainForm .editFormComonTop .itemTopIcon {
+        top: -14px;
+        left: 12px;
+    }
+    #editProfileMainForm .editFormComonTop .title h4 {
+        font-size: 19px;
+    }
+    #editProfileMainForm .inputBoxArea {
+        margin-top: 1px;
+        padding: 0px 14px;
+    }
+    .intl-tel-input .flag-dropdown .country-list {
+        width: 301px !important;
+    }
+    #footer .footerLinkarea {
+        padding-left: 0px;
+        margin-top: 24px;
+    }
+    #footer {
+        padding: 52px 0px;
+    }
+    #reviewBox{
+        display: none !important;
+    }
+    #downloadProfileBanar .downloadProfileBanarContent h6 {
+        font-size: 13px;
+        width: 93%;
+    }
+    #mobileHederContent{
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

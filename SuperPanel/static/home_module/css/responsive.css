@@ -1,0 +1,413 @@
+/* XL (laptop) Device :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+   
+}
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .intl-tel-input .flag-dropdown .country-list {
+        position: absolute;
+        left: -100%;
+    }
+    #footer .footerLinkarea {
+        padding-left: 0px;
+    }
+    #headerArea .profileDropdown .profileHover {
+        right: 0;
+        left: inherit;
+    }
+}
+
+
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    #headerArea .profileDropdown .profileHover {
+        right: 0;
+        left: inherit;
+    }
+    #landingFeater1 .landingFeater1Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater2 .landingFeater2Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent2 {
+        padding-left: 0px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn2 {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 767px) {
+}
+
+/*-- Phone Landscape --*/
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+
+
+
+
+
+
+
+
+
+    #adminLandinBanar {
+        padding: 34px 0px;
+    }
+    .adminLandinBanarImage img {
+        width: 37%;
+    }
+    .adminLandinBanarContent {
+        text-align: center;
+    }
+    #adminLandinBanar .adminLandinBanarContent h3 {
+        font-size: 21px;
+        line-height: 27px;
+        margin-top: 15px;
+    }
+    #adminLandinBanar .adminLandinBanarContent p {
+        font-size: 15px;
+    }
+    #landingFeater1 .titleTop h4 {
+        font-size: 19px;
+    }
+    #landingFeater2 .titleTop h4{
+        font-size: 19px;
+    }
+    #landingFeater1 .landingFeater1Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater1 .landingFeater1Content .item p {
+        color: #000000;
+        font-size: 14px;
+        margin-top: 20px;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    #landingFeater2 .landingFeater2Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater4 {
+        padding-top: 0px;
+    }
+    #landingFeater4 .topTitle h4 {
+        font-size: 21px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox img {
+        width: 73%;
+    }
+    #landingFeater4 .landingFeater4Container {
+        margin-top: 30px;
+    }
+    #landingFeater2 {
+        padding: 0px 0px 20px 0px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent{
+        margin-top: 30px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox {
+        position: relative;
+        text-align: center !important;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn2 {
+        width: 100%;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent2 {
+        padding-left: 0px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent ul li {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    #landingFeater4 {
+        padding-bottom: 25px;
+    }
+    #landingBottomQuote .landingBottomQuoteContent h3 {
+        font-weight: 400;
+        font-size: 26px;
+        color: #000;
+        width: 100%;
+        line-height: 30px;
+        margin: 0 auto;
+    }
+    #landingBottomQuote .landingBottomQuoteContent p {
+        font-size: 15px;
+        color: #000;
+        font-weight: 300;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    #adminLandinBanar .adminLandinBanarImage img {
+        height: auto !important;
+    }
+    #landingFeater2{
+        background: #F8F9FA !important;
+    }
+}
+
+
+
+/* Extra small Device. */
+@media (max-width: 575px) {
+
+    #headerArea{
+        display: none;
+    }
+    #mobileHeader{
+        display: block;
+    }
+    #editProfileMainForm .editFormComonTop .itemTopIcon img {
+        height: 38px;
+    }
+    #editProfileMainForm .editFormComonTop .itemTopIcon {
+        top: -14px;
+        left: 12px;
+    }
+    #editProfileMainForm .editFormComonTop .title h4 {
+        font-size: 19px;
+    }
+    #editProfileMainForm .inputBoxArea {
+        margin-top: 1px;
+        padding: 0px 14px;
+    }
+    .intl-tel-input .flag-dropdown .country-list {
+        width: 301px !important;
+    }
+    #footer .footerLinkarea {
+        padding-left: 0px;
+        margin-top: 24px;
+    }
+    #footer {
+        padding: 52px 0px;
+    }
+    #reviewBox{
+        display: none !important;
+    }
+    #downloadProfileBanar .downloadProfileBanarContent h6 {
+        font-size: 13px;
+        width: 93%;
+    }
+    #mobileHederContent{
+        width: 100%;
+    }
+
+
+
+
+    #adminLandinBanar {
+        padding: 34px 0px;
+    }
+    .adminLandinBanarContent {
+        text-align: center;
+    }
+    #adminLandinBanar .adminLandinBanarContent h3 {
+        font-size: 21px;
+        line-height: 27px;
+        margin-top: 15px;
+    }
+    #adminLandinBanar .adminLandinBanarContent p {
+        font-size: 15px;
+    }
+    #landingFeater1 .titleTop h4 {
+        font-size: 19px;
+    }
+    #landingFeater2 .titleTop h4{
+        font-size: 19px;
+    }
+    #landingFeater1 .landingFeater1Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater1 .landingFeater1Content .item p {
+        color: #000000;
+        font-size: 12px;
+        margin-top: 20px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    #landingFeater2 .landingFeater2Content .item{
+        margin-bottom: 30px;
+    }
+    #landingFeater4 {
+        padding-top: 0px;
+    }
+    #landingFeater4 .topTitle h4 {
+        font-size: 21px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox img {
+        width: 73%;
+    }
+    #landingFeater4 .landingFeater4Container {
+        margin-top: 30px;
+    }
+    #landingFeater2 {
+        padding: 0px 0px 20px 0px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent{
+        margin-top: 30px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox {
+        position: relative;
+        text-align: center !important;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn2 {
+        width: 100%;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent2 {
+        padding-left: 0px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .featerContent ul li {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    #landingFeater4 {
+        padding-bottom: 25px;
+    }
+    #landingBottomQuote .landingBottomQuoteContent h3 {
+        font-weight: 400;
+        font-size: 26px;
+        color: #000;
+        width: 100%;
+        line-height: 30px;
+        margin: 0 auto;
+    }
+    #landingBottomQuote .landingBottomQuoteContent p {
+        font-size: 15px;
+        color: #000;
+        font-weight: 300;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    #adminLandinBanar .adminLandinBanarContent ul li {
+        display: inline-block;
+        margin-right: 9px;
+    }
+    #landingFeater1 .landingFeater1Content .item img {
+        height: 54px;
+    }
+    #landingFeater1 {
+        padding-bottom: 0px;
+    }
+    #landingFeater2 .landingFeater2Content {
+        margin-top: 25px;
+    }
+    #landingFeater1 .landingFeater1Content {
+        margin-top: 30px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox img {
+        width: 64%;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 31px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn a {
+        display: inline-block;
+        background: #fff;
+        padding: 7px 28px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 13px;
+    }
+    #landingFeater4 .landingFeater4Container .itemBox .imageBox .buyNowBtn {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 38px;
+    }
+
+    #landingBottomQuote .landingBottomQuoteContent h3 {
+        font-weight: 600;
+        font-size: 19px;
+        color: #000;
+        width: 100%;
+        line-height: 26px;
+        margin: 0 auto;
+    }
+    #landingBottomQuote .landingBottomQuoteContent p {
+        font-size: 14px;
+    }
+    #landingBottomQuote {
+        padding: 0px 0px 45px 0px;
+        background: #F8F9FA;
+    }
+    #landingFeater2{
+        background: #F8F9FA !important;
+    }
+
+
+
+
+}
+
+
+
+@media (max-width: 320px) {
+    #adminLandinBanar .adminLandinBanarContent ul li {
+        display: inline-block;
+        margin-right: 0px;
+    }
+    #adminLandinBanar .adminLandinBanarContent ul .buyNowBtn a {
+        padding: 7px 33px;
+    }
+    #adminLandinBanar .adminLandinBanarContent ul .playVideo a i {
+        font-size: 15px;
+        margin-right: 8px;
+        height: 40px;
+        width: 40px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+        text-align: center;
+        line-height: 40px;
+        color: #0096C7;
+        margin-left: 7px;
+    }
+    #adminLandinBanar .adminLandinBanarContent h3 {
+        font-size: 18px;
+        line-height: 27px;
+        margin-top: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

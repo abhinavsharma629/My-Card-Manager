@@ -1,0 +1,158 @@
+<!-- start header area -->
+<header id="headerArea">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-xl-2 col-lg-2 col-md-2">
+            <div class="logoarea">
+               <a href="#">
+                  <img src="{{ STATIC_URL }}static/edit_download_module/img/logo.png" class="img-fluid" alt="">
+               </a>
+            </div>
+         </div>
+         <div class="col-xl-8 col-lg-8 col-md-8">
+            <div class="menuarea text-center">
+               <nav>
+                  <ul>
+                     <li><a href="#">Home</a></li>
+                     <li>
+                        <a href="#">Buy Now</a>
+                        <div class="headerHover">
+                           <ul>
+                              <li><a href="#">
+                                 <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/1.png" alt="">
+                                 <span>ETCH24 Cards</span>
+                              </a></li>
+                              <li><a href="#">
+                                 <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/2.png" alt="">
+                                 <span>Pop-Up Buttons</span>
+                              </a></li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <a href="#">About ETECH24</a>
+                        <div class="headerHover">
+                           <ul>
+                              <li><a href="#">
+                                 <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/3.png" alt="">
+                                 <span>Why ETCH24</span>
+                              </a></li>
+                              <li><a href="#">
+                                 <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/4.png" alt="">
+                                 <span>ETCH24.PROFILE</span>
+                              </a></li>
+                              <li><a href="#">
+                                 <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/5.png" alt="">
+                                 <span>FAQ</span>
+                              </a></li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-2 col-md-2">
+            <div class="profileDropdown">
+               <button type="button">
+                  <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/user.png" alt="">
+                  <h4>Me</h4>
+               </button>
+               <div class="profileHover">
+                  <ul>
+                     <li><a href="#">
+                        <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/6.png" alt="">
+                        <span>My Cart</span>
+                     </a></li>
+                     <li><a href="#">
+                        <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/7.png" alt="">
+                        <span>My Orders</span>
+                     </a></li>
+                     <li><a href="#">
+                        <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/8.png" alt="">
+                        <span>ETCH24.PROFILE</span>
+                     </a></li>
+                     {% if request.user.is_authenticated %}
+                       <li><a href="#">
+                          <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/9.png" alt="">
+                          <span>Sign Out</span>
+                       </a></li>
+                     {% endif %}
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- end header area -->
+<!-- start mobile header -->
+<section id="mobileHeader">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-3">
+            <div class="logoMobile">
+               <a href="#">
+                  <img src="{{ STATIC_URL }}static/edit_download_module/img/mobile-logo.png" class="img-fluid" alt="">
+               </a>
+            </div>
+         </div>
+         <div class="col-9">
+            <div class="mobileHeadeToggle text-right">
+               <span><i class="fa fa-bars"></i></span>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- end mobile header -->
+<!-- start mobile header content -->
+<section id="mobileHederContent">
+   <div class="topareaContentMobile">
+      <div class="row">
+         <div class="col-3">
+            <div class="logoMobileContent">
+               <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/mobile-logo.png" alt="">
+            </div>
+         </div>
+         <div class="col-9">
+            <div class="topRight text-right">
+               <ul>
+                  <li><img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/user.png" alt=""></li>
+                  <!-- <li><a href="#">Sign In</a></li>  -->
+                  <li class="menuCLose"><i class="fal fa-times"></i></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="headerMobileContentLink">
+      <div class="linkBox">
+         <ul>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/1.png" alt=""> ETCH24 Cards</a></li>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/2.png" alt=""> Pop-Up Buttons</a></li>
+         </ul>
+      </div>
+      <div class="deviderLink"></div>
+      <div class="linkBox">
+         <ul>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/3.png" alt=""> Why ETCH24</a></li>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/4.png" alt=""> ETCH24.PROFILE</a></li>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/5.png" alt=""> FAQ</a></li>
+            <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/10.png" alt=""> Testimonial</a></li>
+         </ul>
+      </div>
+      <div class="deviderLink"></div>
+      {% if request.user.is_authenticated %}
+        <div class="linkBox">
+           <ul>
+              <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/6.png" alt=""> My Cart</a></li>
+              <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/7.png" alt=""> My Orders</a></li>
+              <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/8.png" alt=""> ETCH24.PROFILE</a></li>
+              <li><a href="#"><img src="{{ STATIC_URL }}static/edit_download_module/img/menu/9.png" alt=""> Sign Out</a></li>
+           </ul>
+        </div>
+      {% endif %}
+   </div>
+</section>
+<!-- end mobile header content -->

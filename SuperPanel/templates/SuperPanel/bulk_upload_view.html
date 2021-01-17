@@ -1,0 +1,141 @@
+{% extends './common/company_skeleton.html' %}
+{% block main_body %}
+
+   <!-- start bult upload area -->
+   <section id="bulkUPloadARea">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-xl-11 col-lg-12 mx-auto">
+               <div class="bulkUploadToparea">
+                  <!-- <form class="" role="form" method="post" action="">
+                    {% csrf_token %} -->
+                     <div class="row">
+                        <div class="col-lg-3">
+                           <div class="inputBox">
+                              <label>Company Name</label>
+                              <select id="c_name" name = "c_name">
+                                 <option value="">Select Option</option>
+                                 {% for company in companies %}
+                                  <option value="{{ company.pk }}">{{ company.name }}</option>
+                                 {% endfor %}
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-lg-3">
+                           <div class="inputBoxFile">
+                              <label class="labelInput">Upload EXCEL File</label>
+                              <input type="file" id="fileUpload1" name = "fileUpload1">
+                              <label for="fileUpload1" class="labeFile1">Choose File</label>
+                           </div>
+                        </div>
+                        <div class="col-lg-3">
+                           <div class="downloadInput">
+                              <label>Download Sample EXCEL File</label>
+                              <button type="button">Download <i class="fa fa-download"></i></button>
+                           </div>
+                        </div>
+                        <div class="col-lg-3">
+                           <div class="inputBoxFile">
+                              <label class="labelInput">Upload Profile Picture</label>
+                              <input type="file" id="fileUpload2" name = "fileUpload2">
+                              <label for="fileUpload2" class="labeFile1">Choose File</label>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="uploadBulkAction">
+                              <button type="button" id="upload_sheet">Upload EXCEL</button>
+                           </div>
+                        </div>
+                     </div>
+                  <!-- </form> -->
+               </div>
+               <div class="bulkUploadCheckArea">
+                  <div class="row">
+                     <div class="col-xl-8 col-lg-10 mx-auto">
+                        <div class="row">
+                           <div class="col-xl-6 col-lg-6">
+                              <div class="uploadCheckBox text-center">
+                                 <h4>Successful Upload</h4>
+                                 <input type="text" value="0" readonly>
+                                 <div class="checkBulkBtn">
+                                    <button type="button">Check</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-xl-6 col-lg-6">
+                              <div class="uploadCheckBox text-center">
+                                 <h4>Un-successful Upload</h4>
+                                 <input type="text" value="0" readonly>
+                                 <div class="checkBulkBtn">
+                                    <button type="button">Check</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end bult upload area -->
+
+{% endblock %}
+
+<!-- all javascript load here -->
+{% block script_body %}
+<script>
+  $(function(){
+    var csrftoken = $("#csrf_token").val();
+    var c_logo = '';
+    var sheet = '';
+
+    $("#fileUpload1").change(function(){
+      sheet = this.files[0];
+      console.log(sheet)
+    });
+
+    $("#fileUpload2").change(function(){
+      c_logo = this.files[0];
+      console.log(c_logo)
+    });
+
+
+    $("#upload_sheet").click(function(){
+      var formdata = new FormData();
+      formdata.append('c_name', $("#c_name").val());
+      formdata.append('c_logo', c_logo);
+      formdata.append('sheet', sheet);
+      console.log(formdata);
+
+      $.ajax({
+         url: '/superpanel/save-upload/',
+         data: formdata,
+         processData: false,
+         headers: {
+                          'X-CSRFToken': "{{ csrf_token }}"
+              },
+         cache:false,
+         contentType: false,
+         csrfmiddlewaretoken:'{{ csrf_token }}',
+         type: 'POST',
+         success: function ( data ) {
+             console.log(data);
+             if(data.status === "ERROR"){
+               alert("Some Error Occured!! Please Try Again!!")
+             }
+             else if(data.status === "SUCCESS"){
+               var watch = window.origin + "/superpanel/bulk_upload_status?id=" + data.id
+               alert("Your Sheet Will Be Uploaded Soon!! You can check status on " + watch);
+               window.location.href = "/superpanel/bulk_upload_status?id=" + data.id;
+             }
+             else{
+               alert("Some Error Occured!! Please Try Again!!")
+             }
+         }
+     });
+    });
+  });
+</script>
+{% endblock %}

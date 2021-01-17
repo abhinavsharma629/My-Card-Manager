@@ -1,0 +1,565 @@
+{% extends './common/company_skeleton.html' %}
+{% block main_body %}
+
+
+
+   <!-- start edit profile main form area -->
+   <section id="editProfileMainForm">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="editProfileForm">
+                  <form action="#" id="editProfileForm" enctype="multipart/form-data">
+                     <!-- start persoanl details area -->
+                     <div id="persoanlDetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/profile.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Personal Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input name="firstName" type="text" placeholder="First name" value="Bishal">
+                                    <label>First Name</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Middle name" value="Ratan">
+                                    <label>Middle Name</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input name="lastName" type="text" placeholder="Last name" value="Gupta">
+                                    <label>Last Name</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input name="userId" type="text" placeholder="User ID">
+                                    <label>User ID</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <label id="ProfileError" class="error"></label>
+                                    <input type="file" id="profileImage">
+                                    <label class="filetypeLabel" for="profileImage">Upload Profile Picture</label>
+                                    <span class="label2">Profile Picture (320px*320px)</span>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="profileImagePreview">
+                                    <div class="prevImageDiv">
+                                       <img id="profileViewImage" class="img-fluid" src="asset/img/icons/ar-camera.png" alt="">
+                                       <p class="profileImageFileNme">No file selected</p>
+                                    </div>
+                                    <div class="downloadUserBtn">
+                                       <button type="button">Download <i class="fa fa-download"></i></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end persoanl details area -->
+                     <!-- start about me details area -->
+                     <div id="aboutdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/support.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>About Me</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-5">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Profession">
+                                    <label>Profession</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-8 col-lg-8 col-md-7">
+                                 <div class="inputBox">
+                                    <textarea name="aboutBio" id="aboutBio" placeholder="Description"></textarea>
+                                    <label>Description <span>(280 Character's Only) </span></label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end about me details area -->
+                     <!-- start jobdetails area -->
+                     <div id="jobdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/briefcase.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Job Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Job Title">
+                                    <label>Job Title</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Company Name">
+                                    <label>Company Name</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="tel" name="phoneInput" id="phoneInput" placeholder="Enter your phone number">
+                                    <label>Phone No.</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end jobdetails area -->
+                     <!-- start contact details area -->
+                     <div id="contactdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/contact.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Contact Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="tel" name="phoneInput" id="phoneInput2" placeholder="Enter your phone number">
+                                    <label>Whatsapp</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Telephone No.">
+                                    <label>Telephone No.</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Fax No.">
+                                    <label>Fax No.</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input name="websiteLink" type="text" placeholder="Website">
+                                    <label>Website</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input name="email1" type="text" placeholder="Email Address">
+                                    <label>Email Address</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Skype ID">
+                                    <label>Skype ID</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end contact details area -->
+                     <!-- start connection details -->
+                     <div id="connectiondetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/globe-grid.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Connection Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="fbLink" placeholder="Enter Profile URL">
+                                    <label>Facebook</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="insLink" placeholder="Enter Profile URL">
+                                    <label>Instagram</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="snapLink" placeholder="Enter Profile URL">
+                                    <label>Snapchat</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="linkdInLink" placeholder="Enter Profile URL">
+                                    <label>LinkedIn</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="twiLink" placeholder="Enter Profile URL">
+                                    <label>Twitter</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="tumblerLink" placeholder="Enter Profile URL">
+                                    <label>Tumblr</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="dribbleLink" placeholder="Enter Profile URL">
+                                    <label>Dribbble</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="behanceLink" placeholder="Enter Profile URL">
+                                    <label>Behance</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="pinLink" placeholder="Enter Profile URL">
+                                    <label>Pinterest</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="youtubeLink" placeholder="Enter Profile URL">
+                                    <label>YouTube</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="teleGranLink" placeholder="Enter Profile URL">
+                                    <label>Telegram</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="reditlink" placeholder="Enter Profile URL">
+                                    <label>Reddit</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end connection details -->
+                     <!-- start address form area -->
+                     <div id="addressdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/address.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Address 1</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Street Address 1">
+                                    <label>Street Address 1</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Street Address 2">
+                                    <label>Street Address 2</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="City/Town">
+                                    <label>City/Town</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="State/Province">
+                                    <label>State/Province</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Zip/Postal Code">
+                                    <label>Zip/Postal Code</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input id="country_selector" class="countrySelect" type="text">
+                                    <label>Country</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end address form area -->
+                     <!-- start address form area -->
+                     <div id="addressdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/address.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Address 2</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Street Address 1">
+                                    <label>Street Address 1</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Street Address 2">
+                                    <label>Street Address 2</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="City/Town">
+                                    <label>City/Town</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="State/Province">
+                                    <label>State/Province</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Zip/Postal Code">
+                                    <label>Zip/Postal Code</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input id="country_selector2" class="countrySelect" type="text">
+                                    <label>Country</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end address form area -->
+                     <!-- start payment details area -->
+                     <div id="paymentdetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/pay.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Payment Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Google Pay">
+                                    <label>Google Pay</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Apple Pay">
+                                    <label>Apple Pay</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Paypal">
+                                    <label>Paypal</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Samsung Pay">
+                                    <label>Samsung Pay</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" placeholder="Cash App">
+                                    <label>Cash App</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end payment details area -->
+                     <!-- start additional details area -->
+                     <div id="additionaldetailsForm" class="formItemBox">
+                        <div class="editFormComonTop text-center">
+                           <div class="itemTopIcon">
+                              <img class="img-fluid" src="asset/img/icons/creation.png" alt="">
+                           </div>
+                           <div class="title">
+                              <h4>Additional Details</h4>
+                           </div>
+                        </div>
+                        <div class="inputBoxArea">
+                           <div class="row">
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="emailadi1" placeholder="Email Address">
+                                    <label>Email Address</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="emailadi2" placeholder="Email Address">
+                                    <label>Email Address</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="emailadi3" placeholder="Email Address">
+                                    <label>Email Address</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="webLinkadi1" placeholder="Website Link">
+                                    <label>Website Link</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="webLinkadi2" placeholder="Website Link">
+                                    <label>Website Link</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="text" name="webLinkadi3" placeholder="Website Link">
+                                    <label>Website Link</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="tel" name="phoneInput" id="phoneInputadi1" placeholder="Enter your phone number">
+                                    <label>Mobile No.</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="tel" name="phoneInput" id="phoneInputadi2" placeholder="Enter your phone number">
+                                    <label>Mobile No.</label>
+                                 </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6">
+                                 <div class="inputBox">
+                                    <input type="tel" name="phoneInput" id="phoneInputadi3" placeholder="Enter your phone number">
+                                    <label>Mobile No.</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end additional details area -->
+                     <!-- start form submit action btn -->
+                     <div class="formSubmitAction text-center">
+                        <button type="submit">Save Changes</button>
+                     </div>
+                     <!-- end form submit action btn -->
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end edit profile main form area -->
+
+
+   {% endblock %}
+
+   <!-- all javascript load here -->
+   {% block script_body %}
+
+   <script>
+      $(document).ready(function(){
+
+    // this is for country select
+    $("#country_selector").countrySelect({
+        defaultCountry:"in"
+
+    });
+    $("#country_selector2").countrySelect({
+        defaultCountry:"in"
+    });
+
+
+    //intel input active
+    $("#phoneInput").intlTelInput();
+    $("#phoneInput2").intlTelInput();
+    $("#phoneInputadi1").intlTelInput();
+    $("#phoneInputadi2").intlTelInput();
+    $("#phoneInputadi3").intlTelInput();
+      })
+   </script>
+
+   {% endblock %}

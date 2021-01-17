@@ -1,0 +1,658 @@
+/* XL (laptop) Device :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    #createCompanyPage .createCompanyContaier .inputBox .companyTypeTop button {
+        background: #FFFFFF;
+        border: 1px solid #707070;
+        padding: 4px 4px;
+        margin-right: 10px;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 12px;
+        outline: none;
+    }
+    #bulkUPloadARea .bulkUploadToparea .downloadInput button {
+        padding: 10px 70px;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+   
+}
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent p {
+        width: 100%;
+    }
+    #AuthMainWrapper .AuthMainContainer {
+        padding: 20px 20px;
+        border-radius: 7px;
+        width: 100%;
+    }
+    #viewCompanyPage .viewCompanyPageContainer .inputBox .companyTypeTop button {
+        padding: 7px 9px;
+    }
+    #createCompanyPage .createCompanyContaier .inputBox .companyTypeTop button {
+        background: #FFFFFF;
+        border: 1px solid #707070;
+        padding: 4px 4px;
+        margin-right: 10px;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 12px;
+        outline: none;
+    }
+    #bulkUPloadARea .bulkUploadToparea .inputBoxFile .labeFile1 {
+        padding: 10px 57px;
+    }
+    #bulkUPloadARea .bulkUploadToparea .downloadInput button {
+        padding: 10px 55px;
+    }
+}
+
+
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    #HeroHome .HeroHomeContent h1 {
+        font-size: 30px;
+    }
+    #klubOffer {
+        padding: 50px 0px 80px 0px;
+    }
+    #klubOffer .klubOfferTitle h3 {
+        font-size: 20px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent h3 {
+        font-size: 20px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent h4 {
+        font-size: 20px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent p {
+        font-size: 14px;
+        width: 100%;
+        line-height: 22px;
+    }
+    #workShop .workShopTitle h3 {
+        font-size: 20px;
+    }
+    .workShopItem.text-center img {
+        height: 111px;
+    }
+    #workShop .workShopMinContainer .workShopItem h3 {
+        font-size: 17px;
+    }
+    #workShop .workShopMinContainer .workShopItem p {
+        font-size: 11px;
+        width: 100%;
+        line-height: 18px;
+    }
+    #changeExpect .changeExpectTitle h3 {
+        font-size: 20px;
+    }
+    #becomeMember .becomeMemberTitle h3 {
+        font-size: 20px;
+    }
+    #packedgeArea .packedgeAreaTitle h3 {
+        font-size: 20px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 {
+        left: 0px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 h4 {
+        font-size: 18px;
+    }
+    #uniqueMemberSlider .uniqueMemberSliderTitle h3 {
+        font-size: 20px;
+    }
+    #AuthMainWrapper .AuthMainContainer {
+        padding: 20px 20px;
+        width: 100%;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainSocial ul li a {
+        width: 88%;
+        margin-bottom: 11px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainContainerTop h6 {
+        font-size: 14px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainOtpPart input {
+        margin-right: 18px;
+    }
+    #AuthMainWrapper .AuthMainContainer .authtermSettings {
+        padding-top: 60px;
+    }
+    .nice-select:after {
+        right: -12px;
+    }
+    #AuthMainWrapper .AuthMainContainer .authSkipBtn {
+        padding-top: 100px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainContainerTop2 h4 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+
+
+
+
+}
+
+
+@media (max-width: 767px) {
+}
+
+/*-- Phone Landscape --*/
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    #HeroHome .HeroHomeContent h1 {
+        font-size: 20px;
+    }
+    #klubOffer .klubOfferTitle h3 {
+        font-size: 18px;
+    }
+    #HeroHome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent h3 {
+        font-size: 18px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent h4 {
+        font-size: 18px;
+        margin-top: 3px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContent p {
+        font-size: 14px;
+        margin-top: 10px;
+        width: 100%;
+        line-height: 19px;
+    }
+    #klubOffer .klubOfferMain .klubOfferMainItem .klubOfferMainItemContentLast {
+        left: 0px;
+    }
+    #workShop .workShopTitle h3 {
+        font-size: 18px;
+    }
+    .workShopItem.text-center {
+        margin-bottom: 30px;
+    }
+    .workShopItem.text-center img {
+        height: 100px;
+    }
+    #workShop .workShopMinContainer .workShopItem h3 {
+        font-size: 18px;
+        margin-top: 11px;
+    }
+    #workShop .workShopMinContainer .workShopItem p {
+        font-size: 13px;
+        width: 100%;
+        margin-top: 8px;
+    }
+    #changeExpect .changeExpectTitle h3 {
+        font-size: 18px;
+    }
+    #changeExpect .changeExpectMainContainer .changeExpectContent ul li {
+        font-size: 13px;
+        margin-bottom: 11px;
+    }
+    #becomeMember .becomeMemberTitle h3 {
+        font-size: 18px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentMain h4 {
+        font-size: 15px;
+    }
+    #becomeMember .becomeMemberMainContainer .path_lineMember {
+        position: absolute;
+        top: 143px;
+        left: 42%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    #packedgeArea .packedgeAreaTitle h3 {
+        font-size: 18px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent h3 {
+        font-size: 13px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent p {
+        font-size: 10px;
+        margin-top: 1px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent {
+        margin-left: -27px;
+        position: relative;
+        left: 10px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 h4 {
+        font-size: 10px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 p {
+        font-size: 6px;
+        margin-top: 0px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 {
+        position: relative;
+        left: 0;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemButton a {
+        font-size: 10px;
+        padding: 9px 20px;
+    }
+    #uniqueMemberSlider .uniqueMemberSliderTitle h3 {
+        font-size: 18px;
+    }
+    #uniqueMemberSlider .uniqueMemberSliderMain .uniqueMemberSliderActive .uniqueMemberSliderItem p {
+        font-family: fbook;
+        font-size: 12px;
+        color: #242424;
+        width: 100%;
+        text-align: left;
+        padding-left: 0px;
+        line-height: 23px;
+        margin-top: 15px;
+    }
+    #faqArea .faqAreaTitle h3 {
+        font-size: 18px;
+    }
+    #faqArea .faqAreaMain #accordionExample .card-header button {
+        font-size: 14px;
+    }
+    #faqArea .faqAreaMain #accordionExample .card-body p {
+        font-size: 12px;
+        top: 4px;
+    }
+    #memberStories .memberStoriesTitle h3 {
+        font-size: 18px;
+    }
+    #memberStories .memberStoriesMain .memberStoriesItem .memberStoriesItemContent p {
+        font-size: 12px;
+        line-height: 21px;
+    }
+    #downLoadAppArea .downLoadAppAreaItem .downLoadAppAreaItemContant h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    #downLoadAppArea .downLoadAppAreaItem .downLoadAppAreaItemContant {
+        margin-top: 183px;
+    }
+    .AuthMainImage img {
+        height: 200px;
+        margin: 0 auto;
+        display: table;
+        margin-bottom: 40px;
+    }
+    #AuthMainWrapper {
+        padding-bottom: 100px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+/* Extra small Device. */
+@media (max-width: 575px) {
+    #HeroHome {
+        padding: 60px 0px;
+        position: relative;
+    }
+    #HeroHome .HeroHomeContent h1 {
+        font-size: 30px;
+        width: 86%;
+    }
+    #HeroHome .HeroHomeContent p {
+        font-size: 15px;
+        margin-top: 6px;
+    }
+    .HeroHomeImage {
+        margin-bottom: 100px;
+    }
+    .hide_mobile{
+        display: none !important;
+    }
+    .show_mobile{
+        display: block !important;
+    }
+
+    #HeroHome .HeroHomeImage a {
+        display: block;
+        background: #FF3A58;
+        color: #fff;
+        font-family: fm;
+        font-size: 12px;
+        padding: 14px 0px;
+        border-radius: 7px;
+        text-align: center;
+    }
+    #HeroHome .heroDownloadApp {
+        text-align: center;
+    }
+    #changeExpect .changeExpectTitle h3 {
+        font-size: 18px;
+    }
+    #changeExpect .changeExpectMainContainer .changeExpectContent ul {
+        margin-top: 20px;
+    }
+    #changeExpect .changeExpectMainContainer .changeExpectContent ul li {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    #becomeMember .becomeMemberTitle h3 {
+        font-size: 18px;
+    }
+    #becomeMember .becomeMemberMainContainer .path_lineMember {
+        display: none;
+    }
+    .becomeMemberItemImage img {
+        height: 90px;
+        margin: 0 auto;
+        display: table;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemImage2 {
+        margin-left: 0px;
+    }
+    .becomeMemberItemContent {
+        margin-top: 20px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentNumber h1:after {
+        height: 18px;
+        top: -1px;
+        right: -3px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentNumber h1:before {
+        height: 32px;
+        top: 20px;
+        right: -3px;
+    }
+    .becomeMemberItemContentNumber {
+        position: relative;
+        left: 10px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentMain h4 {
+        font-size: 16px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentMain p {
+        font-size: 11px;
+        margin-top: 1px;
+        line-height: 14px;
+        margin-top: 6px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent .becomeMemberItemContentMain {
+        padding-left: 0px;
+        position: relative;
+        left: -4px;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent2 .becomeMemberItemContentNumber h1:after {
+        top: -10px !important;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent2 .becomeMemberItemContentNumber h1:before {
+        top: 12px !important;
+    }
+    #becomeMember .becomeMemberMainContainer .becomeMemberItem .becomeMemberItemContent3 .becomeMemberItemContentNumber h1:after {
+        height: 60px !important;
+        top: -10px !important;
+    }
+    #packedgeArea .packedgeAreaTitle h3 {
+        font-size: 18px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem {
+        text-align: center;
+        padding: 20px 20px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent {
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .packedgeAreaItemImage img {
+        height: 35px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemButton a {
+        display: block;
+        padding: 12px 0px;
+        text-align: center;
+        margin-top: 40px;
+    }
+    #packedgeArea .packedgeAreaMain .packedgeAreaItem .packedgeAreaItemContent2 {
+        left: 0px;
+        margin-top: 20px;
+    }
+    .packedgeAreaItemBottom.text-right {
+        text-align: center !important;
+    }
+    #uniqueMemberSlider {
+        padding: 60px 0px 100px 0px;
+    }
+    #uniqueMemberSlider .uniqueMemberSliderTitle h3 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .uniqueMemberSliderItem.text-center > img {
+        height: 100px;
+    }
+    #uniqueMemberSlider .uniqueMemberSliderMain .uniqueMemberSliderActive .uniqueMemberSliderItem p {
+        font-size: 12px;
+        width: 100%;
+        padding-left: 0px;
+        line-height: 23px;
+    }
+    .infobottomContent h4 span{
+        display: block;
+    }
+    #infobottom .infobottomContent h4 {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    #infobottom .infobottomContent a {
+        display: block;
+        font-size: 10px;
+        padding: 17px 0px;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+    #faqArea .faqAreaTitle h3 {
+        font-size: 18px;
+    }
+    #faqArea .faqAreaMain #accordionExample .card-header button {
+        font-size: 13px;
+    }
+    #faqArea .faqAreaMain #accordionExample .card-body p {
+        font-family: fbook;
+        font-size: 12px;
+        color: #3F3F3F;
+        position: relative;
+        top: 0px;
+    }
+    #faqArea .faqAreaMain #accordionExample .card-header button {
+        width: 95%;
+    }
+    #faqArea .faqAreaMain #accordionExample .mb-0 button:after {
+        content: "";
+        font-family: "Font Awesome 5 Pro";
+        float: right;
+        font-size: 16px;
+        color: #A6A6A6;
+        right: -25px;
+        position: relative;
+    }
+    #faqArea .faqAreaMain .viewAllFaqButton a {
+        display: block;
+        padding: 13px 0px;
+        text-align: center;
+    }
+    #memberStories .memberStoriesTitle h3 {
+        font-size: 18px;
+    }
+    .memberStoriesItemImage img {
+        height: 80px;
+        width: auto !important;
+        margin: 0 auto;
+    }
+    .memberStoriesItemContent {
+        text-align: center;
+        margin-top: 15px;
+    }
+    #memberStories .memberStoriesMain .memberStoriesItem .memberStoriesItemContent p {
+        font-size: 12px;
+        line-height: 23px;
+        text-align: left;
+    }
+    #memberStories .memberStoriesMain .memberStoriesItem .memberStoriesItemContent h4 {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    #memberStories .memberStoriesMain .memberStoriesItemAllBtn a {
+        display: block;
+        font-size: 13px;
+        padding: 14px 0px;
+        text-align: center;
+    }
+
+    .memberStoriesMainSliderActive  .owl-dots{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .memberStoriesMainSliderActive .owl-dots .owl-dot{
+        height: 10px;
+        width: 10px;
+        background: #D3D3D3;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0px 5px;
+    }
+    .memberStoriesMainSliderActive .owl-dots .owl-dot.active{
+        background: #656565;
+    }
+    .downLoadAppAreaItemImage {
+        border-bottom: 2px solid #000;
+    }
+    #downLoadAppArea .downLoadAppAreaItem .downLoadAppAreaItemContant {
+        margin-top: 20px;
+        text-align: center;
+    }
+    #downLoadAppArea .downLoadAppAreaItem .downLoadAppAreaItemContant h4 {
+        font-size: 14px;
+    }
+    #downLoadAppArea{
+        padding-bottom: 140px;
+    }
+    #downLoadAppArea:after {
+        display: none;
+    }
+    #downLoadAppArea #scrollTop img {
+        height: 46px;
+    }
+    #downLoadAppArea #scrollTop {
+        position: absolute;
+        bottom: -27px;
+        right: 14px;
+        cursor: pointer;
+    }
+    #changeExpect {
+        padding: 50px 0px 50px 0px;
+    }
+    #becomeMember {
+        padding: 50px 0px;
+    }
+    #faqArea .faqAreaMain {
+        margin-top: 30px;
+    }
+    #AuthMainWrapper .AuthMainContainer {
+        width: 100%;
+    }
+    .mpl0{
+        padding-left: 0px !important;
+    }
+    .mpr0{
+        padding-right: 0px !important;
+    }
+    #AuthMainWrapper .AuthMainContainer {
+        border-radius: 0px;
+        width: 100%;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainContainerTop h4 {
+        text-align: center;
+    }
+    .nice-select{
+        position: relative;
+        left: -10px;
+    }
+    .nice-select:after {
+        right: -20px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainPhoneInput .nice-select .list {
+        width: 80px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainSocial ul li a {
+        width: 100%;
+        margin-bottom: 13px;
+    }
+    #AuthMainWrapper {
+        overflow-x: hidden;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainOtpPart input {
+        margin-right: 21px;
+    }
+    #mobileEditPopup .mobileEditPopupContent {
+        background: #fff;
+        width: 100%;
+    }
+    #mobileEditPopup .mobileEditPopupContent input {
+        width: 93%;
+        left: 13px;
+    }
+
+    #mobileEditPopup .mobileEditPopupContent .nice-select .list {
+        width: 100px;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainContainerTop2 {
+        padding-top: 20px;
+        text-align: center;
+    }
+    #AuthMainWrapper .AuthMainContainer .AuthMainContainerTop2 h4 {
+        text-align: center;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

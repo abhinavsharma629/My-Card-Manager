@@ -1,0 +1,162 @@
+{% extends './common/company_skeleton.html' %}
+{% block main_body %}
+
+   <!-- start view company area -->
+   <section id="viewCompanyPage">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-xxl-11 col-lg-12 mx-auto">
+               <div class="viewCompanyPageContainer">
+                  <div class="topFilterCompany">
+                    <form class="" role="form" method="get" action="">
+                        <div class="row">
+                           <div class="col-lg-4">
+                              <div class="inputBox">
+                                 <label>Company Name</label>
+                                 <input id="c_name" name="c_name" type="text">
+                              </div>
+                           </div>
+                           <div class="col-lg-4">
+                              <div class="inputBox">
+                                 <label>Company Status</label>
+                                 <select id="c_status" name="c_status">
+                                    <option value="">---</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="INACTIVE">INACTIVE</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-lg-4">
+                              <div class="inputBox">
+                                 <label>Company Type</label>
+                                 <div class="companyTypeTop">
+                                    <button type="button">
+                                       <img src="{{ STATIC_URL }}static/company_module/img/icons/enterprise.png" alt="">
+                                       Company
+                                    </button>
+                                    <button type="button">
+                                       <img src="{{ STATIC_URL }}static/company_module/img/icons/consulting.png" alt="">
+                                       Consultant
+                                    </button>
+                                 </div>
+                                 <select id="c_type" name="c_type">
+                                   <option value="">---</option>
+                                    <option value="COMPANY">COMPANY</option>
+                                    <option value="CONSULTANT">CONSULTANT</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="companyActionBtn">
+                                 <button type="submit">Filter</button>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               <div class="companyViewTable">
+                  <table class="table table-bordered">
+                     <thead>
+                        <tr>
+                           <th>Company Name</th>
+                           <th>Company Type</th>
+                           <th>Contact Person Name</th>
+                           <th>Contact Person Email</th>
+                           <th>Super User Email</th>
+                           <th>Super User Password </th>
+                           <th>Company Status</th>
+                           <th>Change Status</th>
+                           <th>Edit Company</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for company in companies %}
+                        <tr>
+                           <td>{{ company.name }}</td>
+                           <td>{{ company.company_type }}</td>
+                           <td>{{ company.contact_person_name }}</td>
+                           <td>{{ company.contact_person_email }}</td>
+                           <td>{{ company.email_address }}</td>
+                           <td>{{ company.password }}</td>
+                           <td id="cmp_{{ company.id }}">{{ company.company_status }}</td>
+                           <td><button class="chnageStatus" data-status = "{{ company.company_status }}" data-id = "{{ company.id }}">Change Status</button></td>
+                           <td><a href="/superpanel/edit-company?id={{ company.id }}" class="editBtn">Edit</a></td>
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+               <div class="tablePagination">
+                  <div class="row align-items-center">
+                     <div class="col-lg-7">
+                        <div class="pageNumber text-end">
+                           <span>Page No. 01</span>
+                        </div>
+                     </div>
+                     <div class="col-lg-5">
+                        <div class="nextPage text-end">
+                           <button type="button"><i class="fa fa-long-arrow-right"></i></button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   {% endblock %}
+
+   <!-- all javascript load here -->
+   {% block script_body %}
+   <script>
+     $(function(){
+       var csrftoken = $("#csrf_token").val();
+
+       $(".chnageStatus").click(function(){
+         console.log($(this).attr('data-status'));
+         console.log($(this).attr('data-id'));
+         var status = "ACTIVE";
+         var that = this;
+         var id = $(this).attr('data-id');
+         console.log($(this).attr('data-status'))
+         if($(this).attr('data-status') == "ACTIVE"){
+           status = "INACTIVE"
+         }
+         else{
+           status = "ACTIVE"
+         }
+
+         $.ajax({
+            url: '/superpanel/change-company-status/'+$(this).attr('data-id'),
+            processData: false,
+            headers: {
+                             'X-CSRFToken': '{{ csrf_token }}'
+                 },
+            data: JSON.stringify({
+              'company_status': status
+            }),
+            cache:false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                console.log(data);
+                if(data.status === "ERROR"){
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+                else if(data.status === "SUCCESS"){
+                  console.log("#cmp_"+id)
+                  $("#cmp_"+id).text(data['current_company_status']);
+                  $(that).attr('data-status', data['current_company_status']);
+                }
+                else{
+                  alert("Some Error Occured!! Please Try Again!!")
+                }
+            }
+        });
+
+       });
+     });
+   </script>
+   {% endblock %}

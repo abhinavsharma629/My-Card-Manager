@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+   <meta charset="utf-8">
+   <title>MyCard Manager || 2020</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- HOME PAGE -->
+   <link rel="apple-touch-icon" href="{{ STATIC_URL }}static/home_module/img/favicon.png">
+   <link rel="icon" href="{{ STATIC_URL }}static/home_module/img/favicon.png">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/bootstrap.min.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/js/plugin/css/intlTelInput.min.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/js/plugin/css/countrySelect.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/fontawsome.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/animate.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/style.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/custom.css">
+   <link rel="stylesheet" href="{{ STATIC_URL }}static/home_module/css/responsive.css">
+   <!-- this is for mordanizar js link -->
+   <script src="{{ STATIC_URL }}static/home_module/js/vendor/modernizr-3.6.0.min.js"></script>
+
+   {% block css_body %}
+   {% endblock %}
+</head>
+
+<body class="gray-bg">
+  {% block header %}{% include './header_home.html' %}{% endblock %}
+  {% block main_body %}
+  {% endblock %}
+
+  <!-- all javascript load here -->
+
+
+  <!-- HOME PAGE -->
+  <script src="{{ STATIC_URL }}static/home_module/js/vendor/jquery-3.3.1.min.js"></script>
+  <script src="{{ STATIC_URL }}static/home_module/js/bootstrap.bundle.min.js"></script>
+  <!-- country select js  -->
+  <script src="{{ STATIC_URL }}static/home_module/js/plugin/js/countrySelect.js"></script>
+  <script src="{{ STATIC_URL }}static/home_module/js/custom.js"></script>
+  <!-- intel input plugin  -->
+  <script src="{{ STATIC_URL }}static/home_module/js/plugin/js/intlTelInput.js"></script>
+  <!-- form validtion  -->
+  <script src="{{ STATIC_URL }}static/home_module/js/plugin/jquery.validate.min.js"></script>
+  <script src="{{ STATIC_URL }}static/home_module/js/plugin/additional-methods.min.js"></script>
+  <script src="{{ STATIC_URL }}static/home_module/js/form-validation.js"></script>
+
+
+
+  <script>
+     $('#allCheck').change(function(){
+       $('input:checkbox').not(this).prop('checked', this.checked);
+   })
+  </script>
+
+  {% block script_body %}
+  {% endblock %}
+
+</body>
+
+</html>
