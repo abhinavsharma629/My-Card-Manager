@@ -7,7 +7,7 @@ from .choices import *
 class UserExtention(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
     type = models.CharField(max_length = 100, choices = USER_TYPE_CHOICES, null = False)
-    mobile = models.CharField(max_length = 12, null = True, blank = True)
+    mobile = models.CharField(max_length = 30, null = True, blank = True)
     password = models.CharField(max_length=1000, blank=True, null = True)
 
 

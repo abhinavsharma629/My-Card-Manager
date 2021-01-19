@@ -16,15 +16,14 @@ $( document ).ready( function () {
             required: true,
             digits: true
          },
-         
+
          aboutBio:{
-            required: true,
             maxlength: 280,
          },
-         websiteLink:{
-            required: true,
-            url: true,
-         },
+         // websiteLink:{
+         //    required: true,
+         //    url: true,
+         // },
          email1: {
             required: true,
             email: true,
@@ -32,7 +31,7 @@ $( document ).ready( function () {
          phoneInput: {
             required: true,
          },
-         //conection details 
+         //conection details
          fbLink: {
             url: true,
          },
@@ -70,24 +69,24 @@ $( document ).ready( function () {
             url: true,
          },
          // aditional form validation
-         emailadi1:{
-            email: true,
-         },
-         emailadi2:{
-            email: true,
-         },
-         emailadi3:{
-            email: true,
-         },
-         webLinkadi1:{
-            url: true,
-         },
-         webLinkadi2:{
-            url: true,
-         },
-         webLinkadi3:{
-            url: true,
-         },
+         // emailadi1:{
+         //    email: true,
+         // },
+         // emailadi2:{
+         //    email: true,
+         // },
+         // emailadi3:{
+         //    email: true,
+         // },
+         // webLinkadi1:{
+         //    url: true,
+         // },
+         // webLinkadi2:{
+         //    url: true,
+         // },
+         // webLinkadi3:{
+         //    url: true,
+         // },
 
 
 
@@ -103,11 +102,10 @@ $( document ).ready( function () {
             digits: 'Please enter a valid USER ID',
          },
          aboutBio:{
-            required: 'Mandatory fields cannot be empty',
             maxlength: "You've exceeded the character limit by {280}."
          },
          websiteLink: {
-            required: 'Mandatory fields cannot be empty',
+            // required: 'Mandatory fields cannot be empty',
             url: 'Please enter a valid web address'
          },
          email1: {
@@ -119,18 +117,18 @@ $( document ).ready( function () {
    });
 
 
-   // custom inputtype file image validation 
+   // custom inputtype file image validation
    $( document ).ready( function () {
 
       // preview image function
       function readURL(input) {
          if (input.files && input.files[0]) {
            var reader = new FileReader();
-           
+
            reader.onload = function(e) {
              $('#profileViewImage').attr('src', e.target.result);
            }
-           
+
            reader.readAsDataURL(input.files[0]); // convert to base64 string
          }
        }

@@ -1,6 +1,88 @@
 from .models import *
 import random, sys
 
+
+def updateEmployeeProfile(obj, request):
+    data = request.POST
+    obj.user.user.first_name = data['firstName']
+    obj.user.user.last_name = data['lastName']
+    obj.middle_name = data['middleName']
+    obj.user.user.email = data['email1']
+    if('profileImage' in request.FILES):
+        obj.profile_picture = request.FILES['profileImage']
+
+    obj.profession = data['profession']
+    obj.description = data['aboutBio']
+    obj.job_title = data['jobTitle']
+    mobileTemp = obj.user
+    mobileTemp.mobile = data['phoneInput123']
+    mobileTemp.save()
+
+    obj.whatsapp_number = data['phoneInput2']
+    obj.telephone_number = data['telephone']
+    obj.fax_number = data['fax']
+    obj.website = data['websiteLink']
+    obj.skype_id = data['skype']
+
+    if(not obj.third_party_connection_details):
+        third = ThirdPartConnection()
+        obj.third_party_connection_details = third
+    else:
+        third = obj.third_party_connection_details
+    third.facebook = data['fbLink']
+    third.instagram = data['insLink']
+    third.snapchat = data['snapLink']
+    third.linkedin = data['linkdInLink']
+    third.twitter = data['twiLink']
+    third.tumblr = data['tumblerLink']
+    third.dribble = data['dribbleLink']
+    third.behance = data['behanceLink']
+    third.pinterest = data['pinLink']
+    third.youtube = data['youtubeLink']
+    third.telegram = data['teleGranLink']
+    third.reddit = data['reditlink']
+    third.save()
+
+    obj.address1 = data['s_add1']
+    obj.address2 = data['s_add2']
+    obj.city = data['city']
+    obj.state = data['state']
+    obj.zipcode = data['zip']
+    obj.country = data['country_selector']
+
+    obj.another_address1 = data['s_add1_1']
+    obj.another_address2 = data['s_add2_1']
+    obj.another_city = data['city1']
+    obj.another_state = data['state1']
+    obj.another_zipcode = data['zip1']
+    obj.another_country = data['country_selector2']
+
+    if(not obj.payment_details):
+        pay = PaymentDetail()
+        obj.payment_details = pay
+    else:
+        pay = obj.payment_details
+
+    pay.g_pay = data['gpay']
+    pay.apple_pay = data['app_pay']
+    pay.paypal = data['paypal']
+    pay.samsung_pay = data['samsung']
+    pay.cash_app = data['cash']
+    pay.save()
+
+    obj.email_address1 = data['emailadi1']
+    obj.email_address2 = data['emailadi2']
+    obj.email_address3 = data['emailadi3']
+    obj.website1 = data['webLinkadi1']
+    obj.website2 = data['webLinkadi2']
+    obj.website3 = data['webLinkadi3']
+    obj.mobile1 = data['phoneInputadi1']
+    obj.mobile2 = data['phoneInputadi2']
+    obj.mobile3 = data['phoneInputadi3']
+
+    obj.save()
+
+
 # What fields shall be populated?
 target_fields = {"Name":True,
                  "FullName":True,

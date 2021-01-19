@@ -21,6 +21,7 @@ from django.conf import settings
 from django.contrib.auth import logout
 from .utils import *
 
+
 @login_required
 def edit_profile(request):
     if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN", "COMPANY_EMPLOYEE", "COMMON_EMPLOYEE"])):
@@ -31,6 +32,9 @@ def edit_profile(request):
             #     return JsonResponse({'status': "ERROR", 'message': "YOU ARE NOT ALLOWED TO EDIT YOUR PROFILE"})
             if(request.POST):
                 print(request.POST)
+                print(updateEmployeeProfile(obj[0], request))
+                return HttpResponseRedirect("/employees/edit-profile")
+            
             temp_dict['obj'] = obj[0]
             return render(request, 'Employees/edit_profile.html', temp_dict)
         else:

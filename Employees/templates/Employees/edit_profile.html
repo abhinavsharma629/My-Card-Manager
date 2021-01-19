@@ -24,7 +24,7 @@
          <div class="row">
             <div class="col-12">
                <div class="editProfileForm">
-                    <form action="" id="editProfileForm" class="" role="form" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data">
                      {% csrf_token %}
                      <!-- start persoanl details area -->
                      <div id="persoanlDetailsForm" class="formItemBox">
@@ -46,7 +46,7 @@
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.middle_name }}" placeholder="Middle name">
+                                    <input type="text" value = "{{ obj.middle_name }}" name="middleName" placeholder="Middle name">
                                     <label>Middle Name</label>
                                  </div>
                               </div>
@@ -65,7 +65,7 @@
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <label id="ProfileError" class="error"></label>
-                                    <input type="file" id="profileImage" value = "{{ obj.profile_picture }}" >
+                                    <input type="file" name="profileImage" id="profileImage" value = "{{ obj.profile_picture }}" >
                                     <label class="filetypeLabel" for="profileImage">Upload Profile Picture</label>
                                     <span class="label2">Profile Picture (320px*320px)</span>
                                  </div>
@@ -94,13 +94,13 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-5">
                                  <div class="inputBox">
-                                    <input type="text"  value = "{{ obj.profession }}" placeholder="Profession">
+                                    <input type="text" name = "profession" value = "{{ obj.profession }}" placeholder="Profession">
                                     <label>Profession</label>
                                  </div>
                               </div>
                               <div class="col-xl-8 col-lg-8 col-md-7">
                                  <div class="inputBox">
-                                    <textarea name="aboutBio" id="aboutBio" value = "{{ obj.description }}" placeholder="Description"></textarea>
+                                    <textarea name="aboutBio" id="aboutBio" placeholder="Description">{{ obj.description }}</textarea>
                                     <label>Description <span>(280 Character's Only) </span></label>
                                  </div>
                               </div>
@@ -122,19 +122,19 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.job_title }}" placeholder="Job Title">
+                                    <input type="text" name="jobTitle" value = "{{ obj.job_title }}" placeholder="Job Title">
                                     <label>Job Title</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" {% if obj.company %} value = "{{ obj.company.name }}"{% endif %} placeholder="Company Name">
+                                    <input disabled type="text" {% if obj.company %} value = "{{ obj.company.name }}"{% endif %} placeholder="Company Name">
                                     <label>Company Name</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="tel" value = "{{ obj.user.mobile }}" name="phoneInput" id="phoneInput" placeholder="Enter your phone number">
+                                    <input type="tel" value = "{{ obj.user.mobile }}" name="phoneInput123" id="phoneInput" placeholder="Enter your phone number">
                                     <label>Phone No.</label>
                                  </div>
                               </div>
@@ -156,19 +156,19 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="tel" value = "{{ obj.whatsapp_number }}" name="phoneInput" id="phoneInput2" placeholder="Enter your phone number">
+                                    <input type="tel" value = "{{ obj.whatsapp_number }}" name="phoneInput2" id="phoneInput2" placeholder="Enter your phone number">
                                     <label>Whatsapp</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.telephone_number }}" placeholder="Telephone No.">
+                                    <input type="text" name="telephone" value = "{{ obj.telephone_number }}" placeholder="Telephone No.">
                                     <label>Telephone No.</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.fax_number }}" placeholder="Fax No.">
+                                    <input type="text" name="fax" value = "{{ obj.fax_number }}" placeholder="Fax No.">
                                     <label>Fax No.</label>
                                  </div>
                               </div>
@@ -186,7 +186,7 @@
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.skype_id }}" placeholder="Skype ID">
+                                    <input type="text" name="skype" value = "{{ obj.skype_id }}" placeholder="Skype ID">
                                     <label>Skype ID</label>
                                  </div>
                               </div>
@@ -211,16 +211,16 @@
                                     <input type="text" value = "{{ obj.third_party_connection_details.facebook }}" name="fbLink" placeholder="Enter Profile URL">
                                     <label>Facebook</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://www.facebook.com/" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text"value = "{{ obj.third_party_connection_details.instagram }}"  name="insLink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.instagram }}"  name="insLink" placeholder="Enter Profile URL">
                                     <label>Instagram</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://www.instagram.com/" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
@@ -283,7 +283,7 @@
                                     <input type="text" value = "{{ obj.third_party_connection_details.pinterest }}" name="pinLink" placeholder="Enter Profile URL">
                                     <label>Pinterest</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://in.pinterest.com/" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
@@ -291,12 +291,18 @@
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.youtube }}" name="youtubeLink" placeholder="Enter Profile URL">
                                     <label>YouTube</label>
+                                    <div class="getLinkBtn">
+                                       <a href="https://www.youtube.com/" target="_blank">Get Link</a>
+                                    </div>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.telegram }}" name="teleGranLink" placeholder="Enter Profile URL">
                                     <label>Telegram</label>
+                                    <div class="getLinkBtn">
+                                       <a href="#">Get Link</a>
+                                    </div>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
@@ -326,37 +332,37 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.address1 }}" placeholder="Street Address 1">
+                                    <input type="text" name="s_add1" value = "{{ obj.address1 }}" placeholder="Street Address 1">
                                     <label>Street Address 1</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.address2 }}" placeholder="Street Address 2">
+                                    <input type="text" name="s_add2" value = "{{ obj.address2 }}" placeholder="Street Address 2">
                                     <label>Street Address 2</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.city }}" placeholder="City/Town">
+                                    <input type="text" name="city" value = "{{ obj.city }}" placeholder="City/Town">
                                     <label>City/Town</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.state }}" placeholder="State/Province">
+                                    <input type="text" name="state" value = "{{ obj.state }}" placeholder="State/Province">
                                     <label>State/Province</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.zipcode }}" placeholder="Zip/Postal Code">
+                                    <input type="text" name="zip" value = "{{ obj.zipcode }}" placeholder="Zip/Postal Code">
                                     <label>Zip/Postal Code</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input id="country_selector" {% if obj.country %} value = "{{ obj.country }}" {% endif %} class="countrySelect" type="text">
+                                    <input id="country_selector" name="country_selector" {% if obj.country %} value = "{{ obj.country }}" {% endif %} class="countrySelect" type="text">
                                     <label>Country</label>
                                  </div>
                               </div>
@@ -378,37 +384,37 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.another_address1 }}" placeholder="Street Address 1">
+                                    <input type="text" name="s_add1_1" value = "{{ obj.another_address1 }}" placeholder="Street Address 1">
                                     <label>Street Address 1</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.another_address2 }}" placeholder="Street Address 2">
+                                    <input type="text" name="s_add2_1" value = "{{ obj.another_address2 }}" placeholder="Street Address 2">
                                     <label>Street Address 2</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.another_city }}" placeholder="City/Town">
+                                    <input type="text" name="city1" value = "{{ obj.another_city }}" placeholder="City/Town">
                                     <label>City/Town</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.another_state }}" placeholder="State/Province">
+                                    <input type="text" name="state1" value = "{{ obj.another_state }}" placeholder="State/Province">
                                     <label>State/Province</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.another_zipcode }}" placeholder="Zip/Postal Code">
+                                    <input type="text" name="zip1" value = "{{ obj.another_zipcode }}" placeholder="Zip/Postal Code">
                                     <label>Zip/Postal Code</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input id="country_selector2" {% if obj.another_country %} value = "{{ obj.another_country }}" {% endif %} class="countrySelect" type="text">
+                                    <input id="country_selector2" name="country_selector2" {% if obj.another_country %} value = "{{ obj.another_country }}" {% endif %} class="countrySelect" type="text">
                                     <label>Country</label>
                                  </div>
                               </div>
@@ -430,31 +436,31 @@
                            <div class="row">
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.payment_details.g_pay }}" placeholder="Google Pay">
+                                    <input type="text" name="gpay" value = "{{ obj.payment_details.g_pay }}" placeholder="Google Pay">
                                     <label>Google Pay</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.payment_details.apple_pay }}" placeholder="Apple Pay">
+                                    <input type="text" name="app_pay" value = "{{ obj.payment_details.apple_pay }}" placeholder="Apple Pay">
                                     <label>Apple Pay</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.payment_details.paypal }}" placeholder="Paypal">
+                                    <input type="text" name="paypal" value = "{{ obj.payment_details.paypal }}" placeholder="Paypal">
                                     <label>Paypal</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.payment_details.samsung_pay }}" placeholder="Samsung Pay">
+                                    <input type="text" name="samsung" value = "{{ obj.payment_details.samsung_pay }}" placeholder="Samsung Pay">
                                     <label>Samsung Pay</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.payment_details.cash_app }}" placeholder="Cash App">
+                                    <input type="text" name="cash" value = "{{ obj.payment_details.cash_app }}" placeholder="Cash App">
                                     <label>Cash App</label>
                                  </div>
                               </div>
@@ -512,19 +518,19 @@
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="tel" value = "{{ obj.mobile1 }}" name="phoneInput" id="phoneInputadi1" placeholder="Enter your phone number">
+                                    <input type="tel" value = "{{ obj.mobile1 }}" name="phoneInputadi1" id="phoneInputadi1" placeholder="Enter your phone number">
                                     <label>Mobile No.</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="tel" value = "{{ obj.mobile2 }}" name="phoneInput" id="phoneInputadi2" placeholder="Enter your phone number">
+                                    <input type="tel" value = "{{ obj.mobile2 }}" name="phoneInputadi2" id="phoneInputadi2" placeholder="Enter your phone number">
                                     <label>Mobile No.</label>
                                  </div>
                               </div>
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="tel" value = "{{ obj.mobile3 }}" name="phoneInput" id="phoneInputadi3" placeholder="Enter your phone number">
+                                    <input type="tel" value = "{{ obj.mobile3 }}" name="phoneInputadi3" id="phoneInputadi3" placeholder="Enter your phone number">
                                     <label>Mobile No.</label>
                                  </div>
                               </div>

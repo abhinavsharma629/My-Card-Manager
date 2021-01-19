@@ -7,7 +7,7 @@
          <div class="row">
             <div class="col-12">
                <div class="downloadProfileBanarContent text-center">
-                  <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/download-profile.png" alt="">
+                  <img class="img-fluid" src="{{ obj.profile_picture.url }}" alt="">
                   <h3>{{ obj.user.user.first_name }} {{ obj.middle_name }} {{ obj.user.user.last_name }}</h3>
                   <p>{{ obj.user.mobile }}</p>
                   <h4>{{ obj.profession }}</h4>
