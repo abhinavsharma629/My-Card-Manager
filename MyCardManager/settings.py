@@ -149,5 +149,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SERVER_BASE_URL = "http://127.0.0.1:8000"
 
-# LOGIN_REDIRECT_URL = '/superpanel/commonPanel'
-# LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = '/superpanel/home'
+LOGOUT_REDIRECT_URL = "/superpanel/login"

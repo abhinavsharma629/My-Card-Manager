@@ -25,7 +25,16 @@ from .utils import *
 @login_required
 def edit_profile(request):
     if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN", "COMPANY_EMPLOYEE", "COMMON_EMPLOYEE"])):
-        obj = Employee.objects.filter(user__user__username = request.user.username)
+        try:
+            obj = Employee.objects.filter(user__user__username = request.GET['username'])
+        except Exception as e:
+            print("error1")
+            try:
+                obj = Employee.objects.filter(user__user__username = request.user.username)
+            except Exception as e:
+                print("error2")
+                return JsonResponse({'status': "ERROR", 'message': "NO SUCH USER EXISTS IN OUR DATABASE"})
+
         if(obj.count() > 0):
             temp_dict = {}
             # if(obj[0].is_profile_editing_active == False):
@@ -34,8 +43,12 @@ def edit_profile(request):
                 print(request.POST)
                 print(updateEmployeeProfile(obj[0], request))
                 return HttpResponseRedirect("/employees/edit-profile")
-            
+
             temp_dict['obj'] = obj[0]
+            if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN"])):
+                temp_dict['allow'] = "True"
+            else:
+                temp_dict['allow'] = "False"
             return render(request, 'Employees/edit_profile.html', temp_dict)
         else:
             return JsonResponse({'status': "ERROR", 'message': "NO SUCH USER EXISTS IN OUR DATABASE"})
@@ -43,7 +56,6 @@ def edit_profile(request):
 
 
 def view_profile(request):
-    print(settings.MEDIA_ROOT)
     if("username" in request.GET):
         obj = Employee.objects.filter(user__user__username = request.GET['username'])
         if(obj.count() > 0):

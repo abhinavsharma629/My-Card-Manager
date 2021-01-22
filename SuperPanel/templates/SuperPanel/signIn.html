@@ -96,14 +96,14 @@
                         <div class="inputBox">
                            <label>Enter your registered email address</label>
                            <div class="input-main">
-                             <input type="email" placeholder="Email Address">
+                             <input type="email" id="curr_email" placeholder="Email Address">
                              <span class="input-icons"><i class="fa fa-envelope"></i></span>
                            </div>
-                           <span class="forpass-error" style="display:none">This email address is not registered with us</span>
+                           <span id="my_span1" class="forpass-error" style="display:none">This email address is not registered with us</span>
                        </div>
                       </div>
                       <div class="action-btn">
-                         <button type="button" id="set-passmodal-btn" data-toggle="modal" data-target="#setnewpass-modal" class="cbtn">RECOVER PASSWORD</button>
+                         <button type="button" id="recover_pass" class="cbtn">RECOVER PASSWORD</button>
                       </div>
                    </form>
                 </div>
@@ -194,7 +194,7 @@
                   $("#my_span").css("display", "block");
                 }
                 else if(data.status==="success"){
-                  window.location.href = "/employees/edit-profile";
+                  window.location.href = "/superpanel/home";
                 }
                 else{
                   alert("Some Error Occured!! Please Try Again!!")
@@ -202,6 +202,8 @@
               }
             });
         });
+
+
      })
    </script>
    {% endblock %}

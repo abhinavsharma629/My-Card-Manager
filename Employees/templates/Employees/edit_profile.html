@@ -3,7 +3,7 @@
 
 
    <!-- start edit profile message top -->
-   {% if obj.is_profile_status_active == False %}
+   {% if obj.is_profile_status_active == False and allow == "False" %}
    <section id="edditPofileMessageTop">
       <div class="container">
          <div class="row">
@@ -206,15 +206,18 @@
                         </div>
                         <div class="inputBoxArea">
                            <div class="row">
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.facebook }}" name="fbLink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.facebook }}" id="fbLink1" name="fbLink" placeholder="Enter Profile URL">
                                     <label>Facebook</label>
                                     <div class="getLinkBtn">
-                                       <a href="https://www.facebook.com/" target="_blank">Get Link</a>
+                                       <a class="get_link" data-id="facebook">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
+                              <!-- Not Available -->
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.instagram }}"  name="insLink" placeholder="Enter Profile URL">
@@ -224,60 +227,70 @@
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.snapchat }}" name="snapLink" placeholder="Enter Profile URL">
+                                    <input type="text" {% if obj.third_party_connection_details.snapchat %}value = "{{ obj.third_party_connection_details.snapchat }}"{% else %}value="https://www.snapchat.com/add/"{% endif %} id="snapLink1" name="snapLink" placeholder="Enter Profile URL">
                                     <label>Snapchat</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a class="get_link" data-id="snapchat">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.linkedin }}" name="linkdInLink" placeholder="Enter Profile URL">
                                     <label>LinkedIn</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://www.linkedin.com/login" target="_blank" data-id="linkedin">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.twitter }}" name="twiLink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.twitter }}" id="twiLink1" name="twiLink" placeholder="Enter Profile URL">
                                     <label>Twitter</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a class="get_link" data-id="twitter">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.tumblr }}" name="tumblerLink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.tumblr }}" id="tumblerLink1" name="tumblerLink" placeholder="Enter Profile URL">
                                     <label>Tumblr</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a class="get_link" data-id="tumblr">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
+                              <!-- Not Available -->
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.dribble }}" name="dribbleLink" placeholder="Enter Profile URL">
                                     <label>Dribbble</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://dribbble.com/session/new" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
+                              <!-- Not Available -->
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.behance }}" name="behanceLink" placeholder="Enter Profile URL">
                                     <label>Behance</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fadobeid%2FBehanceWebSusi1%2FAdobeID%2Ftoken%3Fredirect_uri%3Dhttps%253A%252F%252Fwww.behance.net%252F%253Fisa0%253D1%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%26state%3D%257B%2522ac%2522%253A%2522behance.net%2522%252C%2522csrf%2522%253A%2522e192a577-270d-492a-bda5-cd3427d6a2f4%2522%252C%2522timestamp%2522%253A%25221611272817461%2522%252C%2522intent%2522%253A%2522signIn%2522%252C%2522version%2522%253A1%257D%26code_challenge_method%3Dplain%26use_ms_for_expiry%3Dtrue&client_id=BehanceWebSusi1&scope=AdobeID%2Copenid%2Cgnav%2Csao.cce_private%2Ccreative_cloud%2Ccreative_sdk%2Cbe.pro2.external_client%2Cadditional_info.roles&denied_callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fdenied%2FBehanceWebSusi1%3Fredirect_uri%3Dhttps%253A%252F%252Fwww.behance.net%252F%253Fisa0%253D1%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%26response_type%3Dtoken%26state%3D%257B%2522ac%2522%253A%2522behance.net%2522%252C%2522csrf%2522%253A%2522e192a577-270d-492a-bda5-cd3427d6a2f4%2522%252C%2522timestamp%2522%253A%25221611272817461%2522%252C%2522intent%2522%253A%2522signIn%2522%252C%2522version%2522%253A1%257D&state=%7B%22ac%22%3A%22behance.net%22%2C%22csrf%22%3A%22e192a577-270d-492a-bda5-cd3427d6a2f4%22%2C%22timestamp%22%3A%221611272817461%22%2C%22intent%22%3A%22signIn%22%2C%22version%22%3A1%7D&relay=68aedd97-20d3-455b-bcd9-f2ffc6cc387d&locale=en_US&flow_type=token&dctx_id=bhnc_22989526-955d-49e3-9a7d-f093e8f3dbf5&idp_flow_type=login#/" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
+                              <!-- Not Available -->
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.pinterest }}" name="pinLink" placeholder="Enter Profile URL">
@@ -287,30 +300,34 @@
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.youtube }}" name="youtubeLink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.youtube }}" id="youtubeLink1" name="youtubeLink" placeholder="Enter Profile URL">
                                     <label>YouTube</label>
                                     <div class="getLinkBtn">
-                                       <a href="https://www.youtube.com/" target="_blank">Get Link</a>
+                                       <a class="get_link" data-id="youtube">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
+                              <!-- Not Available -->
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
                                     <input type="text" value = "{{ obj.third_party_connection_details.telegram }}" name="teleGranLink" placeholder="Enter Profile URL">
                                     <label>Telegram</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a href="https://web.telegram.org/#/login" target="_blank">Get Link</a>
                                     </div>
                                  </div>
                               </div>
+
                               <div class="col-xl-4 col-lg-4 col-md-6">
                                  <div class="inputBox">
-                                    <input type="text" value = "{{ obj.third_party_connection_details.reddit }}" name="reditlink" placeholder="Enter Profile URL">
+                                    <input type="text" value = "{{ obj.third_party_connection_details.reddit }}" id="reditlink1" name="reditlink" placeholder="Enter Profile URL">
                                     <label>Reddit</label>
                                     <div class="getLinkBtn">
-                                       <a href="#">Get Link</a>
+                                       <a class="get_link" data-id="reddit">Get Link</a>
                                     </div>
                                  </div>
                               </div>
@@ -541,10 +558,11 @@
                      <!-- start form submit action btn -->
 
 
-                     <div class="formSubmitAction text-center">
-                        <button type="submit">Save Changes</button>
-                     </div>
-
+                     {% if obj.is_profile_status_active or allow == "True" %}
+                       <div class="formSubmitAction text-center">
+                          <button type="submit">Save Changes</button>
+                       </div>
+                     {% endif %}
 
                      <!-- end form submit action btn -->
                   </form>
@@ -615,4 +633,65 @@
 
    <!-- all javascript load here -->
    {% block script_body %}
+   <script>
+     $(function(){
+       OAuth.initialize('yKHWiD6q8G1M3MEpPKTip0QXMks')
+
+
+       $(".get_link").click(function(){
+         OAuth.initialize('yKHWiD6q8G1M3MEpPKTip0QXMks');
+
+         let type = $(this).attr("data-id");
+         let url = "";
+         console.log(type);
+         OAuth.popup(type).then(result => {
+           console.log(result);
+
+           if(type === "reddit"){
+             result.get("https://oauth.reddit.com/api/v1/me").then(data => 	{
+                console.log(data);
+                url = "https://www.reddit.com/user/" + data['name']
+                $("#reditlink1").val(url);
+            });
+          }
+
+          else if(type == "snapchat"){
+            result.get('https://kit.snapchat.com/v1/me?query=%7Bme%7BdisplayName%2C%20externalId%2C%20bitmoji%7Bavatar%7D%7D%7D').then(data => {
+              console.log(data);
+              url = "https://www.snapchat.com/add/" + data['username']
+            })
+          }
+
+          else{
+           result.me().done(function(data) {
+             console.log(data);
+
+             if(type === "youtube"){
+               url = "https://www.youtube.com/channel/" + data['email']
+               $("#youtubeLink1").val(url);
+             }
+
+             else if(type === "twitter"){
+               url = "https://twitter.com/" + data['alias']
+               $("#twiLink1").val(url);
+             }
+
+             else if(type === "tumblr"){
+               url = "https://www.tumblr.com/blog/" + data['name']
+               $("#tumblerLink1").val(url);
+             }
+
+             else if(type === "facebook"){
+               url = data['url']
+               $("#fbLink1").val(url);
+             }
+
+             console.log(url);
+            })
+
+          }
+          });
+      	});
+   });
+   </script>
    {% endblock %}

@@ -95,7 +95,7 @@
                         <td><button class="status {% if employee.is_profile_link_active %}green{% else %}red{% endif %} change_profile_link" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_link_active }}" id="p_{{ employee.pk }}" type="button">{{ employee.is_profile_link_active }}</button></td>
                         <td><button class="status {% if employee.is_profile_editing_active %}green{% else %}red{% endif %} change_edit_active" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_editing_active }}" id="p_e_{{ employee.pk }}" type="button">{{ employee.is_profile_editing_active }}</button></td>
                         <td><button class="status {% if employee.is_profile_status_active %}green{% else %}red{% endif %} change_profile_status" data-id = "{{ employee.pk }}" data-status = "{{ employee.is_profile_status_active }}" id="p_s_{{ employee.pk }}" type="button">{{ employee.is_profile_status_active }}</button></td>
-                        <td><a href="/employees/edit-profile/{{ employee.pk }}" class="editProfileBtn">Edit</a></td>
+                        <td><a href="/employees/edit-profile?username={{ employee.user.user.username }}" class="editProfileBtn">Edit</a></td>
                       </tr>
                       {% endfor %}
                      </tbody>

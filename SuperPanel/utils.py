@@ -27,6 +27,10 @@ def create_unique_username():
             return userId
 
 
+def create_new_resetPassword_token():
+    return str(secrets.token_urlsafe(20))
+
+
 def create_user(name, email, password, type):
     try:
         obj = User()
@@ -170,12 +174,12 @@ def create_save_employee(id, data):
         return {"status": False, "message": "DUPLICATE"}
     else:
         # SAVE USER OBJECT
-        password = make_password(create_password())
+        password = create_password()
         username = create_unique_username()
         obj = User()
         obj.email = data['email']
         obj.username = username
-        obj.password = password
+        obj.password = make_password(password)
         obj.first_name = data['first_name']
         obj.last_name = data['last_name']
         obj.save()

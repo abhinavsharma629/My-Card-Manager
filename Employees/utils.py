@@ -1,13 +1,17 @@
 from .models import *
 import random, sys
+from django.contrib.auth.models import User
 
 
 def updateEmployeeProfile(obj, request):
     data = request.POST
-    obj.user.user.first_name = data['firstName']
-    obj.user.user.last_name = data['lastName']
+    mainUser = obj.user.user
+    mainUser.first_name = data['firstName']
+    mainUser.last_name = data['lastName']
     obj.middle_name = data['middleName']
-    obj.user.user.email = data['email1']
+    if(User.objects.filter(email = data['email1']).count() == 0):
+        mainUser.email = data['email1']
+    mainUser.save()
     if('profileImage' in request.FILES):
         obj.profile_picture = request.FILES['profileImage']
 

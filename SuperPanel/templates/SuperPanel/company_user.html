@@ -42,15 +42,17 @@
                         </div>
                      </div>
                      <div class="filterRow row d-flex  justify-content-center">
-                        <div class="filterItem col">
-                           <label>Company</label>
-                           <select id="c_name" name="c_name">
-                              <option value="">Select Option</option>
-                              {% for company in companies %}
-                                <option value="{{ company.id }}">{{ company.name }}</option>
-                              {% endfor %}
-                           </select>
-                        </div>
+                        {% if type == "SUPER_ADMIN" %}
+                          <div class="filterItem col">
+                             <label>Company</label>
+                             <select id="c_name" name="c_name">
+                                <option value="">Select Option</option>
+                                {% for company in companies %}
+                                  <option value="{{ company.id }}">{{ company.name }}</option>
+                                {% endfor %}
+                             </select>
+                          </div>
+                        {% endif %}
                         <!-- <div class="filterItem col">
                            <label>Vertical Company</label>
                            <select>

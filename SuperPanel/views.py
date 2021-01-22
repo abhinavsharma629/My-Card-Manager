@@ -31,15 +31,19 @@ def loginUser(request):
     if(request.body):
         data = json.loads(request.body)
         print(data)
-        user = authenticate(username=data['email'], password=data['password'])
-        print(user)
-        if user is not None:
-            login(request, user)
-            print("successfully logged in user")
-            send_mail_common("New User", "You Have Successfully LoggedIn", "", "noobda44@gmail.com", [user.email])
-            return JsonResponse({"status": "success", "message": "User LoggedIn Successfully"})
+        objs = User.objects.filter(email = data['email'])
+        if(objs.count() > 0):
+            user = authenticate(username = objs[0].username, password = data['password'])
+            print(user)
+            if user is not None:
+                login(request, user)
+                print("successfully logged in user")
+                # send_mail_common("New User", "You Have Successfully LoggedIn", "", "noobda44@gmail.com", [objs[0].email])
+                return JsonResponse({"status": "success", "message": "User LoggedIn Successfully"})
+            else:
+                return JsonResponse({"status": "error"})
         else:
-            return JsonResponse({"status": "error"})
+            return JsonResponse({"status": "error", "message": "No Such User Exists"})
     temp_dict = {}
     return render(request, 'SuperPanel/signIn.html', temp_dict)
 
@@ -62,14 +66,50 @@ def signup(request):
     return render(request, 'SuperPanel/signUp.html', temp_dict)
 
 
-def logout(request):
+def logoutMe(request):
     logout(request)
-    return render(request, 'SuperPanel/signIn.html', temp_dict)
+    return HttpResponseRedirect("/superpanel/login")
 
 
 def forgotpass(request):
+    if(request.body):
+        data = json.loads(request.body)
+        print(data)
+        obj = User.objects.filter(email = data['email'])
+        if(obj.count() > 0):
+            obj = UserExtention.objects.get(user__email = data['email'])
+            obj.resetToken = create_new_resetPassword_token()
+            obj.save()
+            link = settings.SERVER_BASE_URL + "/superpanel/getLink?username="+obj.user.username+"&resetToken="+obj.resetToken
+            send_mail_common("Password Reset Link", "Here is Your Password Reset Link. Link : " + link, "", "noobda44@gmail.com", [data['email']])
+            print("done", link)
+            return JsonResponse({"status": "success", "message": "Reset Email Sent Successfully"})
+        else:
+            return JsonResponse({"status": "error", "message": "User Email Doesn't Exist"})
     temp_dict = {}
     return render(request, 'SuperPanel/forgotPassword.html', temp_dict)
+
+
+def getLink(request):
+    obj = UserExtention.objects.filter(user__username = request.GET['username'], resetToken = request.GET['resetToken'])
+    if(obj.count() > 0):
+        obj = obj[0]
+        if(request.body):
+            data = json.loads(request.body)
+            obj.password = data['password']
+            obj.resetToken = ""
+            obj.save()
+            print(obj.password)
+            obj = obj.user
+            obj.password = make_password(data['password'])
+            obj.save()
+            return JsonResponse({"status": "success", "message": "Password Reset Successfully"})
+        temp_dict = {}
+        temp_dict['user'] = obj
+        temp_dict['link'] = "?username="+obj.user.username+"&resetToken="+obj.resetToken
+        return render(request, 'SuperPanel/resetPassword.html', temp_dict)
+    else:
+        return JsonResponse({"status": "error", "message": "Incorrect Access"})
 
 
 @login_required
@@ -104,7 +144,7 @@ def view_company(request):
 
 @login_required
 def edit_company(request):
-    if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN"])):
+    if(user_type(request, ["SUPER_ADMIN"])):
         obj = None
         if(request.GET.get('id')):
             obj = Company.objects.filter(pk = request.GET['id'])
@@ -158,7 +198,7 @@ def edit_company(request):
 
 @login_required
 def create_company(request):
-    if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN"])):
+    if(user_type(request, ["SUPER_ADMIN"])):
         temp_dict = {}
         return render(request, 'SuperPanel/create_company.html', temp_dict)
     else:
@@ -167,7 +207,7 @@ def create_company(request):
 
 @login_required
 def save_company(request):
-    if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN"])):
+    if(user_type(request, ["SUPER_ADMIN"])):
 
         data = request.POST
         status = "ERROR"
@@ -303,9 +343,9 @@ def bulk_upload_status(request):
 
 @login_required
 def super_admin_login(request):
-    if(user_type(request, ["SUPER_ADMIN"])):
-        search = 0
-        my_list = []
+    search = 0
+    my_list = []
+    if(user_type(request, ["SUPER_ADMIN", "COMPANY_ADMIN"])):
         if(request.GET):
             if(request.GET.get('name') and request.GET['name'] != ""):
                 search = 1
@@ -337,7 +377,7 @@ def super_admin_login(request):
                 print(str_bool(request.GET['p_url']))
                 my_list.append(Q(is_profile_link_active = str_bool(request.GET['p_url'])))
 
-            if(request.GET.get('c_name') and request.GET['c_name'] != ""):
+            if(user_type(request, ["SUPER_ADMIN"]) and request.GET.get('c_name') and request.GET['c_name'] != ""):
                 search = 1
                 my_list.append(Q(company = Company.objects.get(id = request.GET['c_name'])))
 
@@ -347,6 +387,11 @@ def super_admin_login(request):
             data = Employee.objects.all()
 
         temp_dict = {}
+        if(user_type(request, ["COMPANY_ADMIN"])):
+            temp_dict['type'] = "COMPANY_ADMIN"
+            data = Employee.objects.filter(company__company_admin_user__user = request.user)
+        else:
+            temp_dict['type'] = "SUPER_ADMIN"
         temp_dict['employees'] = data
         temp_dict['employees_id'] = list(data.values_list('pk', flat = True))
         # print(list(data.values_list('pk', flat = True)))
@@ -383,9 +428,15 @@ def change_employee_status(request, id):
 
 
 @login_required
-def send_credentails(request, id):
+def send_credentails(request, pk):
     if(user_type(request, ["SUPER_ADMIN"])):
-        return JsonResponse({'status': "SUCCESS"})
+        try:
+            obj = Employee.objects.get(pk = pk)
+            send_mail_common("USER CREDENTIALS FOR MY CARDS", "Here is your credentials for Your My Cards Account. Username : "+ obj.user.user.username +" Password : "+ obj.user.password +" Email Address : "+obj.user.user.email, "", "noobda44@gmail.com", [obj.user.user.email])
+            return JsonResponse({'status': "SUCCESS"})
+        except Exception as e:
+            print(e)
+            return JsonResponse({'status': "ERROR"})
     return JsonResponse({'status': "ERROR", 'message': "NOT ALLOWED TO ACCESS THIS PAGE"})
 
 
