@@ -53,6 +53,7 @@
             </div>
          </div>
          <div class="col-xl-2 col-lg-2 col-md-2">
+           {% if request.user.is_authenticated %}
             <div class="profileDropdown">
                <button type="button">
                   <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/user.png" alt="">
@@ -72,15 +73,20 @@
                         <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/8.png" alt="">
                         <span>ETCH24.PROFILE</span>
                      </a></li>
-                     {% if request.user.is_authenticated %}
                        <li><a href="#">
                           <img class="img-fluid" src="{{ STATIC_URL }}static/edit_download_module/img/menu/9.png" alt="">
                           <span>Sign Out</span>
                        </a></li>
-                     {% endif %}
                   </ul>
                </div>
             </div>
+            {% else %}
+              <div class="before_login text-right">
+                 <ul>
+                    <li><a href="/superpanel/login">Sign in</a></li>
+                 </ul>
+              </div>
+            {% endif %}
          </div>
       </div>
    </div>
