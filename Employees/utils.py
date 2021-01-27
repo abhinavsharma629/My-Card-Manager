@@ -28,24 +28,24 @@ def updateEmployeeProfile(obj, request):
     obj.website = data['websiteLink']
     obj.skype_id = data['skype']
 
-    if(not obj.third_party_connection_details):
-        third = ThirdPartConnection()
-        obj.third_party_connection_details = third
-    else:
-        third = obj.third_party_connection_details
-    third.facebook = data['fbLink']
-    third.instagram = data['insLink']
-    third.snapchat = data['snapLink']
-    third.linkedin = data['linkdInLink']
-    third.twitter = data['twiLink']
-    third.tumblr = data['tumblerLink']
-    third.dribble = data['dribbleLink']
-    third.behance = data['behanceLink']
-    third.pinterest = data['pinLink']
-    third.youtube = data['youtubeLink']
-    third.telegram = data['teleGranLink']
-    third.reddit = data['reditlink']
-    third.save()
+    # if(not obj.third_party_connection_details):
+    #     third = ThirdPartConnection()
+    #     obj.third_party_connection_details = third
+    # else:
+    #     third = obj.third_party_connection_details
+    # third.facebook = data['fbLink']
+    # third.instagram = data['insLink']
+    # third.snapchat = data['snapLink']
+    # third.linkedin = data['linkdInLink']
+    # third.twitter = data['twiLink']
+    # third.tumblr = data['tumblerLink']
+    # third.dribble = data['dribbleLink']
+    # third.behance = data['behanceLink']
+    # third.pinterest = data['pinLink']
+    # third.youtube = data['youtubeLink']
+    # third.telegram = data['teleGranLink']
+    # third.reddit = data['reditlink']
+    # third.save()
 
     obj.address1 = data['s_add1']
     obj.address2 = data['s_add2']
